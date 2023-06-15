@@ -1,0 +1,27 @@
+{
+    "name": "@pulumi/local",
+    "version": "${VERSION}",
+    "description": "A Pulumi package for creating and managing Local cloud resources.",
+    "keywords": [
+        "pulumi",
+        "category/cloud"
+    ],
+    "homepage": "https://www.pulumi.com/",
+    "repository": "https://github.com/pulumi/pulumi-local",
+    "license": "Apache-2.0",
+    "scripts": {
+        "build": "tsc",
+        "install": "node scripts/install-pulumi-plugin.js resource local ${VERSION}"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^3.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^16.0.0",
+        "typescript": "^4.3.5"
+    },
+    "pulumi": {
+        "resource": true,
+        "name": "local"
+    }
+}

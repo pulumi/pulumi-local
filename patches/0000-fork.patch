@@ -1,0 +1,16 @@
+diff --git a/pulumi-shim/pf.go b/pulumi-shim/pf.go
+new file mode 100644
+index 0000000..9236022
+--- /dev/null
++++ b/pulumi-shim/pf.go
+@@ -0,0 +1,10 @@
++package shim
++
++import (
++	pf "github.com/hashicorp/terraform-plugin-framework/provider"
++	"github.com/terraform-providers/terraform-provider-local/internal/provider"
++)
++
++func PFProvider() pf.Provider {
++	return provider.New()
++}
