@@ -307,9 +307,19 @@ jobs:
     name: publish_sdk
     needs: publish
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        language:
+        - nodejs
+        # - python # disabled pending resolution of name conflict.
+        - dotnet
+        - java
     steps:
     - name: Publish SDKs
-      uses: pulumi/pulumi-package-publisher@v0.0.7
+      uses: pulumi/pulumi-package-publisher@v0.0.8
+      with:
+        sdk: ${{ matrix.language }}
     - env:
         SLACK_CHANNEL: provider-upgrade-publish-status
         SLACK_COLOR: "#FF0000"

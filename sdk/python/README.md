@@ -1,6 +1,5 @@
 [![Actions Status](https://github.com/pulumi/pulumi-local/workflows/master/badge.svg)](https://github.com/pulumi/pulumi-local/actions)
 [![NPM version](https://img.shields.io/npm/v/@pulumi/local)](https://www.npmjs.com/package/@pulumi/local)
-[![Python version](https://img.shields.io/pypi/v/pulumi_local)](https://pypi.org/project/pulumi_local)
 [![NuGet version](https://img.shields.io/nuget/v/Pulumi.Local)](https://www.nuget.org/packages/Pulumi.Local)
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-local/sdk/go)](https://pkg.go.dev/github.com/pulumi/pulumi-local/sdk/go)
 [![License](https://img.shields.io/github/license/pulumi/pulumi-local)](https://github.com/pulumi/pulumi-local/blob/master/LICENSE)
@@ -23,12 +22,6 @@ To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 or `yarn`:
 
     $ yarn add @pulumi/local
-
-### Python
-
-To use from Python, install using `pip`:
-
-    $ pip install pulumi_local
 
 ### Go
 
