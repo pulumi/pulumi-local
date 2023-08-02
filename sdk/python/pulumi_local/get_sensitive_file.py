@@ -156,7 +156,20 @@ class AwaitableGetSensitiveFileResult(GetSensitiveFileResult):
 def get_sensitive_file(filename: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSensitiveFileResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_local as local
+
+    foo = local.get_sensitive_file(filename=f"{path['module']}/foo.bar")
+    shared_zip = aws.s3.BucketObjectv2("sharedZip",
+        bucket="my-bucket",
+        key="my-key",
+        content=foo.content)
+    ```
+
 
     :param str filename: Path to the file that will be read. The data source will return an error if the file does not exist.
     """
@@ -182,7 +195,20 @@ def get_sensitive_file(filename: Optional[str] = None,
 def get_sensitive_file_output(filename: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSensitiveFileResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_local as local
+
+    foo = local.get_sensitive_file(filename=f"{path['module']}/foo.bar")
+    shared_zip = aws.s3.BucketObjectv2("sharedZip",
+        bucket="my-bucket",
+        key="my-key",
+        content=foo.content)
+    ```
+
 
     :param str filename: Path to the file that will be read. The data source will return an error if the file does not exist.
     """

@@ -11,6 +11,43 @@ import (
 )
 
 // Reads a file from the local filesystem.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-local/sdk/go/local"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := local.LookupFile(ctx, &local.LookupFileArgs{
+//				Filename: fmt.Sprintf("%v/foo.bar", path.Module),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "sharedZip", &s3.BucketObjectv2Args{
+//				Bucket:  pulumi.Any("my-bucket"),
+//				Key:     pulumi.String("my-key"),
+//				Content: *pulumi.String(foo.Content),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupFile(ctx *pulumi.Context, args *LookupFileArgs, opts ...pulumi.InvokeOption) (*LookupFileResult, error) {
 	var rv LookupFileResult
 	err := ctx.Invoke("local:index/getFile:getFile", args, &rv, opts...)

@@ -434,7 +434,17 @@ class File(pulumi.CustomResource):
                  source: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a File resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_local as local
+
+        foo = local.File("foo",
+            content="foo!",
+            filename=f"{path['module']}/foo.bar")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: Content to store in the file, expected to be a UTF-8 encoded string.
@@ -469,7 +479,17 @@ class File(pulumi.CustomResource):
                  args: FileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a File resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_local as local
+
+        foo = local.File("foo",
+            content="foo!",
+            filename=f"{path['module']}/foo.bar")
+        ```
+
         :param str resource_name: The name of the resource.
         :param FileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

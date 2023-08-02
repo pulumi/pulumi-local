@@ -11,6 +11,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-local/sdk/go/local"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := local.NewSensitiveFile(ctx, "foo", &local.SensitiveFileArgs{
+//				Content:  pulumi.String("foo!"),
+//				Filename: pulumi.String(fmt.Sprintf("%v/foo.bar", path.Module)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type SensitiveFile struct {
 	pulumi.CustomResourceState
 

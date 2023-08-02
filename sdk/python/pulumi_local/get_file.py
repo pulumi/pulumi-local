@@ -158,6 +158,20 @@ def get_file(filename: Optional[str] = None,
     """
     Reads a file from the local filesystem.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_local as local
+
+    foo = local.get_file(filename=f"{path['module']}/foo.bar")
+    shared_zip = aws.s3.BucketObjectv2("sharedZip",
+        bucket="my-bucket",
+        key="my-key",
+        content=foo.content)
+    ```
+
 
     :param str filename: Path to the file that will be read. The data source will return an error if the file does not exist.
     """
@@ -184,6 +198,20 @@ def get_file_output(filename: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileResult]:
     """
     Reads a file from the local filesystem.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_local as local
+
+    foo = local.get_file(filename=f"{path['module']}/foo.bar")
+    shared_zip = aws.s3.BucketObjectv2("sharedZip",
+        bucket="my-bucket",
+        key="my-key",
+        content=foo.content)
+    ```
 
 
     :param str filename: Path to the file that will be read. The data source will return an error if the file does not exist.
