@@ -6,6 +6,9 @@
 
 # Local Resource Provider
 
+This provider is mainly used for ease of converting terraform programs to Pulumi.
+For standard use in Pulumi programs, please use your programming language's filesystem library.
+
 The Local resource provider for Pulumi lets you use Local resources in your cloud programs.
 To use this package, please [install the Pulumi CLI first](https://www.pulumi.com/docs/install/).
 
