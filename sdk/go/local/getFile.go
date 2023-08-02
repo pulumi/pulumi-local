@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-local/sdk/go/local/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,6 +50,7 @@ import (
 //
 // ```
 func LookupFile(ctx *pulumi.Context, args *LookupFileArgs, opts ...pulumi.InvokeOption) (*LookupFileResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFileResult
 	err := ctx.Invoke("local:index/getFile:getFile", args, &rv, opts...)
 	if err != nil {

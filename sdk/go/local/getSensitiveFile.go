@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-local/sdk/go/local/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,6 +48,7 @@ import (
 //
 // ```
 func LookupSensitiveFile(ctx *pulumi.Context, args *LookupSensitiveFileArgs, opts ...pulumi.InvokeOption) (*LookupSensitiveFileResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSensitiveFileResult
 	err := ctx.Invoke("local:index/getSensitiveFile:getSensitiveFile", args, &rv, opts...)
 	if err != nil {
