@@ -89,20 +89,15 @@ start_rebase() {
   git checkout -B pulumi-patch "${FROM}"
   git branch --set-upstream-to=local pulumi-patch
 
-  if [ -d ../patches ]; then
-    for patch in ../patches/*.patch; do
-      echo "Applying $patch"
-      if ! git apply --3way "$patch"; then
-        echo
-        echo "Failed to apply patch. Please run 'make upstream.rebase FROM=$TAG' where '$TAG' allows the patch set to apply cleanly"
-        echo
-        exit 1
-      fi
-      patch=${patch#../patches/*-}
-      git commit -am "${patch%.patch}"
-    done
-  fi
-
+  for patch in ../patches/*.patch; do
+    echo "Applying $patch"
+    if ! git am --3way "$patch"; then
+      echo
+      echo "Failed to apply patch. Please run 'make upstream.rebase FROM=$TAG' where '$TAG' allows the patch set to apply cleanly"
+      echo
+      exit 1
+    fi
+  done
 
   touch ../rebase-in-progress
 
