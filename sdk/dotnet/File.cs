@@ -9,6 +9,26 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Local
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Local = Pulumi.Local;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Local.File("foo", new()
+    ///     {
+    ///         Content = "foo!",
+    ///         Filename = $"{path.Module}/foo.bar",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [LocalResourceType("local:index/file:File")]
     public partial class File : global::Pulumi.CustomResource
     {

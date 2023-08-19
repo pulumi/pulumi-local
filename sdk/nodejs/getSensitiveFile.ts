@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as local from "@pulumi/local";
+ *
+ * const foo = local.getSensitiveFile({
+ *     filename: `${path.module}/foo.bar`,
+ * });
+ * const sharedZip = new aws.s3.BucketObjectv2("sharedZip", {
+ *     bucket: "my-bucket",
+ *     key: "my-key",
+ *     content: foo.then(foo => foo.content),
+ * });
+ * ```
+ */
 export function getSensitiveFile(args: GetSensitiveFileArgs, opts?: pulumi.InvokeOptions): Promise<GetSensitiveFileResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,6 +86,24 @@ export interface GetSensitiveFileResult {
      */
     readonly id: string;
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as local from "@pulumi/local";
+ *
+ * const foo = local.getSensitiveFile({
+ *     filename: `${path.module}/foo.bar`,
+ * });
+ * const sharedZip = new aws.s3.BucketObjectv2("sharedZip", {
+ *     bucket: "my-bucket",
+ *     key: "my-key",
+ *     content: foo.then(foo => foo.content),
+ * });
+ * ```
+ */
 export function getSensitiveFileOutput(args: GetSensitiveFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSensitiveFileResult> {
     return pulumi.output(args).apply((a: any) => getSensitiveFile(a, opts))
 }

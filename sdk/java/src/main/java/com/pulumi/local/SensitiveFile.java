@@ -15,6 +15,39 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.local.SensitiveFile;
+ * import com.pulumi.local.SensitiveFileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new SensitiveFile(&#34;foo&#34;, SensitiveFileArgs.builder()        
+ *             .content(&#34;foo!&#34;)
+ *             .filename(String.format(&#34;%s/foo.bar&#34;, path.module()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="local:index/sensitiveFile:SensitiveFile")
 public class SensitiveFile extends com.pulumi.resources.CustomResource {
     /**

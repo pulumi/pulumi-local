@@ -4,6 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as local from "@pulumi/local";
+ *
+ * const foo = new local.SensitiveFile("foo", {
+ *     content: "foo!",
+ *     filename: `${path.module}/foo.bar`,
+ * });
+ * ```
+ */
 export class SensitiveFile extends pulumi.CustomResource {
     /**
      * Get an existing SensitiveFile resource's state with the given name, ID, and optional extra

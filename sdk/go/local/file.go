@@ -8,9 +8,38 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-local/sdk/go/local/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-local/sdk/go/local"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := local.NewFile(ctx, "foo", &local.FileArgs{
+//				Content:  pulumi.String("foo!"),
+//				Filename: pulumi.String(fmt.Sprintf("%v/foo.bar", path.Module)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type File struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +107,7 @@ func NewFile(ctx *pulumi.Context,
 		"sensitiveContent",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource File
 	err := ctx.RegisterResource("local:index/file:File", name, args, &resource, opts...)
 	if err != nil {
