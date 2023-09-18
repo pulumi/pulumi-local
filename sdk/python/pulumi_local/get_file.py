@@ -158,6 +158,20 @@ def get_file(filename: Optional[str] = None,
     """
     Reads a file from the local filesystem.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_local as local
+
+    foo = local.get_file(filename=f"{path['module']}/foo.bar")
+    shared_zip = aws.s3.BucketObjectv2("sharedZip",
+        bucket="my-bucket",
+        key="my-key",
+        content=foo.content)
+    ```
+
 
     :param str filename: Path to the file that will be read. The data source will return an error if the file does not exist.
     """
@@ -167,16 +181,16 @@ def get_file(filename: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('local:index/getFile:getFile', __args__, opts=opts, typ=GetFileResult).value
 
     return AwaitableGetFileResult(
-        content=__ret__.content,
-        content_base64=__ret__.content_base64,
-        content_base64sha256=__ret__.content_base64sha256,
-        content_base64sha512=__ret__.content_base64sha512,
-        content_md5=__ret__.content_md5,
-        content_sha1=__ret__.content_sha1,
-        content_sha256=__ret__.content_sha256,
-        content_sha512=__ret__.content_sha512,
-        filename=__ret__.filename,
-        id=__ret__.id)
+        content=pulumi.get(__ret__, 'content'),
+        content_base64=pulumi.get(__ret__, 'content_base64'),
+        content_base64sha256=pulumi.get(__ret__, 'content_base64sha256'),
+        content_base64sha512=pulumi.get(__ret__, 'content_base64sha512'),
+        content_md5=pulumi.get(__ret__, 'content_md5'),
+        content_sha1=pulumi.get(__ret__, 'content_sha1'),
+        content_sha256=pulumi.get(__ret__, 'content_sha256'),
+        content_sha512=pulumi.get(__ret__, 'content_sha512'),
+        filename=pulumi.get(__ret__, 'filename'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_file)
@@ -184,6 +198,20 @@ def get_file_output(filename: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileResult]:
     """
     Reads a file from the local filesystem.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_local as local
+
+    foo = local.get_file(filename=f"{path['module']}/foo.bar")
+    shared_zip = aws.s3.BucketObjectv2("sharedZip",
+        bucket="my-bucket",
+        key="my-key",
+        content=foo.content)
+    ```
 
 
     :param str filename: Path to the file that will be read. The data source will return an error if the file does not exist.

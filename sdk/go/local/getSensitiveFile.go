@@ -7,10 +7,49 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-local/sdk/go/local/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-local/sdk/go/local"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := local.LookupSensitiveFile(ctx, &local.LookupSensitiveFileArgs{
+//				Filename: fmt.Sprintf("%v/foo.bar", path.Module),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "sharedZip", &s3.BucketObjectv2Args{
+//				Bucket:  pulumi.Any("my-bucket"),
+//				Key:     pulumi.String("my-key"),
+//				Content: *pulumi.String(foo.Content),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupSensitiveFile(ctx *pulumi.Context, args *LookupSensitiveFileArgs, opts ...pulumi.InvokeOption) (*LookupSensitiveFileResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSensitiveFileResult
 	err := ctx.Invoke("local:index/getSensitiveFile:getSensitiveFile", args, &rv, opts...)
 	if err != nil {
@@ -86,6 +125,12 @@ func (o LookupSensitiveFileResultOutput) ToLookupSensitiveFileResultOutput() Loo
 
 func (o LookupSensitiveFileResultOutput) ToLookupSensitiveFileResultOutputWithContext(ctx context.Context) LookupSensitiveFileResultOutput {
 	return o
+}
+
+func (o LookupSensitiveFileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSensitiveFileResult] {
+	return pulumix.Output[LookupSensitiveFileResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Raw content of the file that was read, as UTF-8 encoded string. Files that do not contain UTF-8 text will have invalid UTF-8 sequences in `content`

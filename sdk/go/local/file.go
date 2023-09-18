@@ -8,9 +8,39 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-local/sdk/go/local/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-local/sdk/go/local"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := local.NewFile(ctx, "foo", &local.FileArgs{
+//				Content:  pulumi.String("foo!"),
+//				Filename: pulumi.String(fmt.Sprintf("%v/foo.bar", path.Module)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type File struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +108,7 @@ func NewFile(ctx *pulumi.Context,
 		"sensitiveContent",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource File
 	err := ctx.RegisterResource("local:index/file:File", name, args, &resource, opts...)
 	if err != nil {
@@ -295,6 +326,12 @@ func (i *File) ToFileOutputWithContext(ctx context.Context) FileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileOutput)
 }
 
+func (i *File) ToOutput(ctx context.Context) pulumix.Output[*File] {
+	return pulumix.Output[*File]{
+		OutputState: i.ToFileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FileArrayInput is an input type that accepts FileArray and FileArrayOutput values.
 // You can construct a concrete instance of `FileArrayInput` via:
 //
@@ -318,6 +355,12 @@ func (i FileArray) ToFileArrayOutput() FileArrayOutput {
 
 func (i FileArray) ToFileArrayOutputWithContext(ctx context.Context) FileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileArrayOutput)
+}
+
+func (i FileArray) ToOutput(ctx context.Context) pulumix.Output[[]*File] {
+	return pulumix.Output[[]*File]{
+		OutputState: i.ToFileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FileMapInput is an input type that accepts FileMap and FileMapOutput values.
@@ -345,6 +388,12 @@ func (i FileMap) ToFileMapOutputWithContext(ctx context.Context) FileMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileMapOutput)
 }
 
+func (i FileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*File] {
+	return pulumix.Output[map[string]*File]{
+		OutputState: i.ToFileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FileOutput struct{ *pulumi.OutputState }
 
 func (FileOutput) ElementType() reflect.Type {
@@ -357,6 +406,12 @@ func (o FileOutput) ToFileOutput() FileOutput {
 
 func (o FileOutput) ToFileOutputWithContext(ctx context.Context) FileOutput {
 	return o
+}
+
+func (o FileOutput) ToOutput(ctx context.Context) pulumix.Output[*File] {
+	return pulumix.Output[*File]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Content to store in the file, expected to be a UTF-8 encoded string.
@@ -457,6 +512,12 @@ func (o FileArrayOutput) ToFileArrayOutputWithContext(ctx context.Context) FileA
 	return o
 }
 
+func (o FileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*File] {
+	return pulumix.Output[[]*File]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FileArrayOutput) Index(i pulumi.IntInput) FileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *File {
 		return vs[0].([]*File)[vs[1].(int)]
@@ -475,6 +536,12 @@ func (o FileMapOutput) ToFileMapOutput() FileMapOutput {
 
 func (o FileMapOutput) ToFileMapOutputWithContext(ctx context.Context) FileMapOutput {
 	return o
+}
+
+func (o FileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*File] {
+	return pulumix.Output[map[string]*File]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FileMapOutput) MapIndex(k pulumi.StringInput) FileOutput {
