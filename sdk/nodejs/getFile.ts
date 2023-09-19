@@ -17,10 +17,10 @@ import * as utilities from "./utilities";
  * const foo = local.getFile({
  *     filename: `${path.module}/foo.bar`,
  * });
- * const sharedZip = new aws.s3.BucketObjectv2("sharedZip", {
+ * const sharedZip = new aws.index.Aws_s3_object("sharedZip", {
  *     bucket: "my-bucket",
  *     key: "my-key",
- *     content: foo.then(foo => foo.content),
+ *     content: foo.content,
  * });
  * ```
  */
@@ -101,10 +101,10 @@ export interface GetFileResult {
  * const foo = local.getFile({
  *     filename: `${path.module}/foo.bar`,
  * });
- * const sharedZip = new aws.s3.BucketObjectv2("sharedZip", {
+ * const sharedZip = new aws.index.Aws_s3_object("sharedZip", {
  *     bucket: "my-bucket",
  *     key: "my-key",
- *     content: foo.then(foo => foo.content),
+ *     content: foo.content,
  * });
  * ```
  */
