@@ -375,7 +375,17 @@ class SensitiveFile(pulumi.CustomResource):
                  source: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a SensitiveFile resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_local as local
+
+        foo = local.SensitiveFile("foo",
+            content="foo!",
+            filename=f"{path['module']}/foo.bar")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: Sensitive Content to store in the file, expected to be a UTF-8 encoded string.
@@ -404,7 +414,17 @@ class SensitiveFile(pulumi.CustomResource):
                  args: SensitiveFileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SensitiveFile resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_local as local
+
+        foo = local.SensitiveFile("foo",
+            content="foo!",
+            filename=f"{path['module']}/foo.bar")
+        ```
+
         :param str resource_name: The name of the resource.
         :param SensitiveFileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

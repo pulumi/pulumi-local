@@ -7,11 +7,51 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-local/sdk/go/local/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Reads a file from the local filesystem.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-local/sdk/go/local"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := local.LookupFile(ctx, &local.LookupFileArgs{
+//				Filename: fmt.Sprintf("%v/foo.bar", path.Module),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "sharedZip", &s3.BucketObjectv2Args{
+//				Bucket:  pulumi.Any("my-bucket"),
+//				Key:     pulumi.String("my-key"),
+//				Content: *pulumi.String(foo.Content),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupFile(ctx *pulumi.Context, args *LookupFileArgs, opts ...pulumi.InvokeOption) (*LookupFileResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFileResult
 	err := ctx.Invoke("local:index/getFile:getFile", args, &rv, opts...)
 	if err != nil {
@@ -87,6 +127,12 @@ func (o LookupFileResultOutput) ToLookupFileResultOutput() LookupFileResultOutpu
 
 func (o LookupFileResultOutput) ToLookupFileResultOutputWithContext(ctx context.Context) LookupFileResultOutput {
 	return o
+}
+
+func (o LookupFileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFileResult] {
+	return pulumix.Output[LookupFileResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Raw content of the file that was read, as UTF-8 encoded string. Files that do not contain UTF-8 text will have invalid UTF-8 sequences in `content`

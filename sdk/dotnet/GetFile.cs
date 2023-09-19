@@ -13,12 +13,72 @@ namespace Pulumi.Local
     {
         /// <summary>
         /// Reads a file from the local filesystem.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Local = Pulumi.Local;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Local.GetFile.Invoke(new()
+        ///     {
+        ///         Filename = $"{path.Module}/foo.bar",
+        ///     });
+        /// 
+        ///     var sharedZip = new Aws.S3.BucketObjectv2("sharedZip", new()
+        ///     {
+        ///         Bucket = "my-bucket",
+        ///         Key = "my-key",
+        ///         Content = foo.Apply(getFileResult =&gt; getFileResult.Content),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFileResult> InvokeAsync(GetFileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileResult>("local:index/getFile:getFile", args ?? new GetFileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Reads a file from the local filesystem.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Local = Pulumi.Local;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Local.GetFile.Invoke(new()
+        ///     {
+        ///         Filename = $"{path.Module}/foo.bar",
+        ///     });
+        /// 
+        ///     var sharedZip = new Aws.S3.BucketObjectv2("sharedZip", new()
+        ///     {
+        ///         Bucket = "my-bucket",
+        ///         Key = "my-key",
+        ///         Content = foo.Apply(getFileResult =&gt; getFileResult.Content),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFileResult> Invoke(GetFileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileResult>("local:index/getFile:getFile", args ?? new GetFileInvokeArgs(), options.WithDefaults());
