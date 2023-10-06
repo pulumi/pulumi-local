@@ -12,7 +12,7 @@ env:
   JAVAVERSION: "11"
   LOCAL_TOKEN: ${{ secrets.LOCAL_TOKEN }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-  NODEVERSION: 16.x
+  NODEVERSION: 20.x
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
   PUBLISH_REPO_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
@@ -97,7 +97,7 @@ jobs:
       uses: peter-evans/create-pull-request@v3.12.0
       with:
         author: pulumi-bot <bot@pulumi.com>
-        base: master
+        base: main
         body: This pull request was generated automatically by the resync-build workflow
           in this repository.
         branch: pulumi-bot/resync-${{ github.run_id}}
