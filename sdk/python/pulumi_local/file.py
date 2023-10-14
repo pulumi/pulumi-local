@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['FileArgs', 'File']
@@ -48,22 +48,43 @@ class FileArgs:
                Conflicts with `content`, `sensitive_content` and `content_base64`.
                Exactly one of these four arguments must be specified.
         """
-        pulumi.set(__self__, "filename", filename)
+        FileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename=filename,
+            content=content,
+            content_base64=content_base64,
+            directory_permission=directory_permission,
+            file_permission=file_permission,
+            sensitive_content=sensitive_content,
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename: pulumi.Input[str],
+             content: Optional[pulumi.Input[str]] = None,
+             content_base64: Optional[pulumi.Input[str]] = None,
+             directory_permission: Optional[pulumi.Input[str]] = None,
+             file_permission: Optional[pulumi.Input[str]] = None,
+             sensitive_content: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filename", filename)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if content_base64 is not None:
-            pulumi.set(__self__, "content_base64", content_base64)
+            _setter("content_base64", content_base64)
         if directory_permission is not None:
-            pulumi.set(__self__, "directory_permission", directory_permission)
+            _setter("directory_permission", directory_permission)
         if file_permission is not None:
-            pulumi.set(__self__, "file_permission", file_permission)
+            _setter("file_permission", file_permission)
         if sensitive_content is not None:
             warnings.warn("""Use the `local_sensitive_file` resource instead""", DeprecationWarning)
             pulumi.log.warn("""sensitive_content is deprecated: Use the `local_sensitive_file` resource instead""")
         if sensitive_content is not None:
-            pulumi.set(__self__, "sensitive_content", sensitive_content)
+            _setter("sensitive_content", sensitive_content)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
 
     @property
     @pulumi.getter
@@ -219,35 +240,68 @@ class _FileState:
                Conflicts with `content`, `sensitive_content` and `content_base64`.
                Exactly one of these four arguments must be specified.
         """
+        _FileState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            content_base64=content_base64,
+            content_base64sha256=content_base64sha256,
+            content_base64sha512=content_base64sha512,
+            content_md5=content_md5,
+            content_sha1=content_sha1,
+            content_sha256=content_sha256,
+            content_sha512=content_sha512,
+            directory_permission=directory_permission,
+            file_permission=file_permission,
+            filename=filename,
+            sensitive_content=sensitive_content,
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[pulumi.Input[str]] = None,
+             content_base64: Optional[pulumi.Input[str]] = None,
+             content_base64sha256: Optional[pulumi.Input[str]] = None,
+             content_base64sha512: Optional[pulumi.Input[str]] = None,
+             content_md5: Optional[pulumi.Input[str]] = None,
+             content_sha1: Optional[pulumi.Input[str]] = None,
+             content_sha256: Optional[pulumi.Input[str]] = None,
+             content_sha512: Optional[pulumi.Input[str]] = None,
+             directory_permission: Optional[pulumi.Input[str]] = None,
+             file_permission: Optional[pulumi.Input[str]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             sensitive_content: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if content_base64 is not None:
-            pulumi.set(__self__, "content_base64", content_base64)
+            _setter("content_base64", content_base64)
         if content_base64sha256 is not None:
-            pulumi.set(__self__, "content_base64sha256", content_base64sha256)
+            _setter("content_base64sha256", content_base64sha256)
         if content_base64sha512 is not None:
-            pulumi.set(__self__, "content_base64sha512", content_base64sha512)
+            _setter("content_base64sha512", content_base64sha512)
         if content_md5 is not None:
-            pulumi.set(__self__, "content_md5", content_md5)
+            _setter("content_md5", content_md5)
         if content_sha1 is not None:
-            pulumi.set(__self__, "content_sha1", content_sha1)
+            _setter("content_sha1", content_sha1)
         if content_sha256 is not None:
-            pulumi.set(__self__, "content_sha256", content_sha256)
+            _setter("content_sha256", content_sha256)
         if content_sha512 is not None:
-            pulumi.set(__self__, "content_sha512", content_sha512)
+            _setter("content_sha512", content_sha512)
         if directory_permission is not None:
-            pulumi.set(__self__, "directory_permission", directory_permission)
+            _setter("directory_permission", directory_permission)
         if file_permission is not None:
-            pulumi.set(__self__, "file_permission", file_permission)
+            _setter("file_permission", file_permission)
         if filename is not None:
-            pulumi.set(__self__, "filename", filename)
+            _setter("filename", filename)
         if sensitive_content is not None:
             warnings.warn("""Use the `local_sensitive_file` resource instead""", DeprecationWarning)
             pulumi.log.warn("""sensitive_content is deprecated: Use the `local_sensitive_file` resource instead""")
         if sensitive_content is not None:
-            pulumi.set(__self__, "sensitive_content", sensitive_content)
+            _setter("sensitive_content", sensitive_content)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
 
     @property
     @pulumi.getter
@@ -506,6 +560,10 @@ class File(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -534,9 +592,6 @@ class File(pulumi.CustomResource):
             if filename is None and not opts.urn:
                 raise TypeError("Missing required property 'filename'")
             __props__.__dict__["filename"] = filename
-            if sensitive_content is not None and not opts.urn:
-                warnings.warn("""Use the `local_sensitive_file` resource instead""", DeprecationWarning)
-                pulumi.log.warn("""sensitive_content is deprecated: Use the `local_sensitive_file` resource instead""")
             __props__.__dict__["sensitive_content"] = None if sensitive_content is None else pulumi.Output.secret(sensitive_content)
             __props__.__dict__["source"] = source
             __props__.__dict__["content_base64sha256"] = None
