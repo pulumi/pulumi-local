@@ -61,14 +61,26 @@ class FileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filename: pulumi.Input[str],
+             filename: Optional[pulumi.Input[str]] = None,
              content: Optional[pulumi.Input[str]] = None,
              content_base64: Optional[pulumi.Input[str]] = None,
              directory_permission: Optional[pulumi.Input[str]] = None,
              file_permission: Optional[pulumi.Input[str]] = None,
              sensitive_content: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filename is None:
+            raise TypeError("Missing 'filename' argument")
+        if content_base64 is None and 'contentBase64' in kwargs:
+            content_base64 = kwargs['contentBase64']
+        if directory_permission is None and 'directoryPermission' in kwargs:
+            directory_permission = kwargs['directoryPermission']
+        if file_permission is None and 'filePermission' in kwargs:
+            file_permission = kwargs['filePermission']
+        if sensitive_content is None and 'sensitiveContent' in kwargs:
+            sensitive_content = kwargs['sensitiveContent']
+
         _setter("filename", filename)
         if content is not None:
             _setter("content", content)
@@ -272,7 +284,29 @@ class _FileState:
              filename: Optional[pulumi.Input[str]] = None,
              sensitive_content: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_base64 is None and 'contentBase64' in kwargs:
+            content_base64 = kwargs['contentBase64']
+        if content_base64sha256 is None and 'contentBase64sha256' in kwargs:
+            content_base64sha256 = kwargs['contentBase64sha256']
+        if content_base64sha512 is None and 'contentBase64sha512' in kwargs:
+            content_base64sha512 = kwargs['contentBase64sha512']
+        if content_md5 is None and 'contentMd5' in kwargs:
+            content_md5 = kwargs['contentMd5']
+        if content_sha1 is None and 'contentSha1' in kwargs:
+            content_sha1 = kwargs['contentSha1']
+        if content_sha256 is None and 'contentSha256' in kwargs:
+            content_sha256 = kwargs['contentSha256']
+        if content_sha512 is None and 'contentSha512' in kwargs:
+            content_sha512 = kwargs['contentSha512']
+        if directory_permission is None and 'directoryPermission' in kwargs:
+            directory_permission = kwargs['directoryPermission']
+        if file_permission is None and 'filePermission' in kwargs:
+            file_permission = kwargs['filePermission']
+        if sensitive_content is None and 'sensitiveContent' in kwargs:
+            sensitive_content = kwargs['sensitiveContent']
+
         if content is not None:
             _setter("content", content)
         if content_base64 is not None:
