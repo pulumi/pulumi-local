@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['SensitiveFileArgs', 'SensitiveFile']
@@ -41,17 +41,46 @@ class SensitiveFileArgs:
                Conflicts with `content` and `content_base64`.
                Exactly one of these three arguments must be specified.
         """
-        pulumi.set(__self__, "filename", filename)
+        SensitiveFileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename=filename,
+            content=content,
+            content_base64=content_base64,
+            directory_permission=directory_permission,
+            file_permission=file_permission,
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename: Optional[pulumi.Input[str]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             content_base64: Optional[pulumi.Input[str]] = None,
+             directory_permission: Optional[pulumi.Input[str]] = None,
+             file_permission: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if filename is None:
+            raise TypeError("Missing 'filename' argument")
+        if content_base64 is None and 'contentBase64' in kwargs:
+            content_base64 = kwargs['contentBase64']
+        if directory_permission is None and 'directoryPermission' in kwargs:
+            directory_permission = kwargs['directoryPermission']
+        if file_permission is None and 'filePermission' in kwargs:
+            file_permission = kwargs['filePermission']
+
+        _setter("filename", filename)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if content_base64 is not None:
-            pulumi.set(__self__, "content_base64", content_base64)
+            _setter("content_base64", content_base64)
         if directory_permission is not None:
-            pulumi.set(__self__, "directory_permission", directory_permission)
+            _setter("directory_permission", directory_permission)
         if file_permission is not None:
-            pulumi.set(__self__, "file_permission", file_permission)
+            _setter("file_permission", file_permission)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
 
     @property
     @pulumi.getter
@@ -180,30 +209,81 @@ class _SensitiveFileState:
                Conflicts with `content` and `content_base64`.
                Exactly one of these three arguments must be specified.
         """
+        _SensitiveFileState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            content_base64=content_base64,
+            content_base64sha256=content_base64sha256,
+            content_base64sha512=content_base64sha512,
+            content_md5=content_md5,
+            content_sha1=content_sha1,
+            content_sha256=content_sha256,
+            content_sha512=content_sha512,
+            directory_permission=directory_permission,
+            file_permission=file_permission,
+            filename=filename,
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[pulumi.Input[str]] = None,
+             content_base64: Optional[pulumi.Input[str]] = None,
+             content_base64sha256: Optional[pulumi.Input[str]] = None,
+             content_base64sha512: Optional[pulumi.Input[str]] = None,
+             content_md5: Optional[pulumi.Input[str]] = None,
+             content_sha1: Optional[pulumi.Input[str]] = None,
+             content_sha256: Optional[pulumi.Input[str]] = None,
+             content_sha512: Optional[pulumi.Input[str]] = None,
+             directory_permission: Optional[pulumi.Input[str]] = None,
+             file_permission: Optional[pulumi.Input[str]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if content_base64 is None and 'contentBase64' in kwargs:
+            content_base64 = kwargs['contentBase64']
+        if content_base64sha256 is None and 'contentBase64sha256' in kwargs:
+            content_base64sha256 = kwargs['contentBase64sha256']
+        if content_base64sha512 is None and 'contentBase64sha512' in kwargs:
+            content_base64sha512 = kwargs['contentBase64sha512']
+        if content_md5 is None and 'contentMd5' in kwargs:
+            content_md5 = kwargs['contentMd5']
+        if content_sha1 is None and 'contentSha1' in kwargs:
+            content_sha1 = kwargs['contentSha1']
+        if content_sha256 is None and 'contentSha256' in kwargs:
+            content_sha256 = kwargs['contentSha256']
+        if content_sha512 is None and 'contentSha512' in kwargs:
+            content_sha512 = kwargs['contentSha512']
+        if directory_permission is None and 'directoryPermission' in kwargs:
+            directory_permission = kwargs['directoryPermission']
+        if file_permission is None and 'filePermission' in kwargs:
+            file_permission = kwargs['filePermission']
+
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if content_base64 is not None:
-            pulumi.set(__self__, "content_base64", content_base64)
+            _setter("content_base64", content_base64)
         if content_base64sha256 is not None:
-            pulumi.set(__self__, "content_base64sha256", content_base64sha256)
+            _setter("content_base64sha256", content_base64sha256)
         if content_base64sha512 is not None:
-            pulumi.set(__self__, "content_base64sha512", content_base64sha512)
+            _setter("content_base64sha512", content_base64sha512)
         if content_md5 is not None:
-            pulumi.set(__self__, "content_md5", content_md5)
+            _setter("content_md5", content_md5)
         if content_sha1 is not None:
-            pulumi.set(__self__, "content_sha1", content_sha1)
+            _setter("content_sha1", content_sha1)
         if content_sha256 is not None:
-            pulumi.set(__self__, "content_sha256", content_sha256)
+            _setter("content_sha256", content_sha256)
         if content_sha512 is not None:
-            pulumi.set(__self__, "content_sha512", content_sha512)
+            _setter("content_sha512", content_sha512)
         if directory_permission is not None:
-            pulumi.set(__self__, "directory_permission", directory_permission)
+            _setter("directory_permission", directory_permission)
         if file_permission is not None:
-            pulumi.set(__self__, "file_permission", file_permission)
+            _setter("file_permission", file_permission)
         if filename is not None:
-            pulumi.set(__self__, "filename", filename)
+            _setter("filename", filename)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
 
     @property
     @pulumi.getter
@@ -435,6 +515,10 @@ class SensitiveFile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SensitiveFileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
