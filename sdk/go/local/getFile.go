@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-local/sdk/go/local/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Reads a file from the local filesystem.
@@ -127,12 +126,6 @@ func (o LookupFileResultOutput) ToLookupFileResultOutput() LookupFileResultOutpu
 
 func (o LookupFileResultOutput) ToLookupFileResultOutputWithContext(ctx context.Context) LookupFileResultOutput {
 	return o
-}
-
-func (o LookupFileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFileResult] {
-	return pulumix.Output[LookupFileResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Raw content of the file that was read, as UTF-8 encoded string. Files that do not contain UTF-8 text will have invalid UTF-8 sequences in `content`
