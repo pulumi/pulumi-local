@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-local/sdk/go/local/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -125,12 +124,6 @@ func (o LookupSensitiveFileResultOutput) ToLookupSensitiveFileResultOutput() Loo
 
 func (o LookupSensitiveFileResultOutput) ToLookupSensitiveFileResultOutputWithContext(ctx context.Context) LookupSensitiveFileResultOutput {
 	return o
-}
-
-func (o LookupSensitiveFileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSensitiveFileResult] {
-	return pulumix.Output[LookupSensitiveFileResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Raw content of the file that was read, as UTF-8 encoded string. Files that do not contain UTF-8 text will have invalid UTF-8 sequences in `content`
