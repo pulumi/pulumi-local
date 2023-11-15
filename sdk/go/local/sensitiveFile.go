@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-local/sdk/go/local/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -285,12 +284,6 @@ func (i *SensitiveFile) ToSensitiveFileOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(SensitiveFileOutput)
 }
 
-func (i *SensitiveFile) ToOutput(ctx context.Context) pulumix.Output[*SensitiveFile] {
-	return pulumix.Output[*SensitiveFile]{
-		OutputState: i.ToSensitiveFileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SensitiveFileArrayInput is an input type that accepts SensitiveFileArray and SensitiveFileArrayOutput values.
 // You can construct a concrete instance of `SensitiveFileArrayInput` via:
 //
@@ -314,12 +307,6 @@ func (i SensitiveFileArray) ToSensitiveFileArrayOutput() SensitiveFileArrayOutpu
 
 func (i SensitiveFileArray) ToSensitiveFileArrayOutputWithContext(ctx context.Context) SensitiveFileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SensitiveFileArrayOutput)
-}
-
-func (i SensitiveFileArray) ToOutput(ctx context.Context) pulumix.Output[[]*SensitiveFile] {
-	return pulumix.Output[[]*SensitiveFile]{
-		OutputState: i.ToSensitiveFileArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SensitiveFileMapInput is an input type that accepts SensitiveFileMap and SensitiveFileMapOutput values.
@@ -347,12 +334,6 @@ func (i SensitiveFileMap) ToSensitiveFileMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SensitiveFileMapOutput)
 }
 
-func (i SensitiveFileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SensitiveFile] {
-	return pulumix.Output[map[string]*SensitiveFile]{
-		OutputState: i.ToSensitiveFileMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SensitiveFileOutput struct{ *pulumi.OutputState }
 
 func (SensitiveFileOutput) ElementType() reflect.Type {
@@ -365,12 +346,6 @@ func (o SensitiveFileOutput) ToSensitiveFileOutput() SensitiveFileOutput {
 
 func (o SensitiveFileOutput) ToSensitiveFileOutputWithContext(ctx context.Context) SensitiveFileOutput {
 	return o
-}
-
-func (o SensitiveFileOutput) ToOutput(ctx context.Context) pulumix.Output[*SensitiveFile] {
-	return pulumix.Output[*SensitiveFile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Sensitive Content to store in the file, expected to be a UTF-8 encoded string.
@@ -459,12 +434,6 @@ func (o SensitiveFileArrayOutput) ToSensitiveFileArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o SensitiveFileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SensitiveFile] {
-	return pulumix.Output[[]*SensitiveFile]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SensitiveFileArrayOutput) Index(i pulumi.IntInput) SensitiveFileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SensitiveFile {
 		return vs[0].([]*SensitiveFile)[vs[1].(int)]
@@ -483,12 +452,6 @@ func (o SensitiveFileMapOutput) ToSensitiveFileMapOutput() SensitiveFileMapOutpu
 
 func (o SensitiveFileMapOutput) ToSensitiveFileMapOutputWithContext(ctx context.Context) SensitiveFileMapOutput {
 	return o
-}
-
-func (o SensitiveFileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SensitiveFile] {
-	return pulumix.Output[map[string]*SensitiveFile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SensitiveFileMapOutput) MapIndex(k pulumi.StringInput) SensitiveFileOutput {
