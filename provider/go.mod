@@ -5,8 +5,8 @@ go 1.21
 replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230912190043-e6d96b3b8f7e
 
 require (
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.21.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.67.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.21.1-0.20231207031853-2c55739033aa
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.67.1-0.20231207031853-2c55739033aa
 	github.com/pulumi/pulumi/sdk/v3 v3.95.0
 	github.com/terraform-providers/terraform-provider-local v0.0.0
 )
