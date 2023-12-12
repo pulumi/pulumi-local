@@ -219,18 +219,18 @@ public final class GetSensitiveFileResult {
             return this;
         }
         public GetSensitiveFileResult build() {
-            final var o = new GetSensitiveFileResult();
-            o.content = content;
-            o.contentBase64 = contentBase64;
-            o.contentBase64sha256 = contentBase64sha256;
-            o.contentBase64sha512 = contentBase64sha512;
-            o.contentMd5 = contentMd5;
-            o.contentSha1 = contentSha1;
-            o.contentSha256 = contentSha256;
-            o.contentSha512 = contentSha512;
-            o.filename = filename;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetSensitiveFileResult();
+            _resultValue.content = content;
+            _resultValue.contentBase64 = contentBase64;
+            _resultValue.contentBase64sha256 = contentBase64sha256;
+            _resultValue.contentBase64sha512 = contentBase64sha512;
+            _resultValue.contentMd5 = contentMd5;
+            _resultValue.contentSha1 = contentSha1;
+            _resultValue.contentSha256 = contentSha256;
+            _resultValue.contentSha512 = contentSha512;
+            _resultValue.filename = filename;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -20,88 +20,12 @@ public final class LocalFunctions {
     /**
      * Reads a file from the local filesystem.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.local.LocalFunctions;
-     * import com.pulumi.local.inputs.GetFileArgs;
-     * import com.pulumi.aws.s3.BucketObjectv2;
-     * import com.pulumi.aws.s3.BucketObjectv2Args;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = LocalFunctions.getFile(GetFileArgs.builder()
-     *             .filename(String.format(&#34;%s/foo.bar&#34;, path.module()))
-     *             .build());
-     * 
-     *         var sharedZip = new BucketObjectv2(&#34;sharedZip&#34;, BucketObjectv2Args.builder()        
-     *             .bucket(&#34;my-bucket&#34;)
-     *             .key(&#34;my-key&#34;)
-     *             .content(foo.applyValue(getFileResult -&gt; getFileResult.content()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFileResult> getFile(GetFileArgs args) {
         return getFile(args, InvokeOptions.Empty);
     }
     /**
      * Reads a file from the local filesystem.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.local.LocalFunctions;
-     * import com.pulumi.local.inputs.GetFileArgs;
-     * import com.pulumi.aws.s3.BucketObjectv2;
-     * import com.pulumi.aws.s3.BucketObjectv2Args;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = LocalFunctions.getFile(GetFileArgs.builder()
-     *             .filename(String.format(&#34;%s/foo.bar&#34;, path.module()))
-     *             .build());
-     * 
-     *         var sharedZip = new BucketObjectv2(&#34;sharedZip&#34;, BucketObjectv2Args.builder()        
-     *             .bucket(&#34;my-bucket&#34;)
-     *             .key(&#34;my-key&#34;)
-     *             .content(foo.applyValue(getFileResult -&gt; getFileResult.content()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFileResult> getFilePlain(GetFilePlainArgs args) {
@@ -110,44 +34,6 @@ public final class LocalFunctions {
     /**
      * Reads a file from the local filesystem.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.local.LocalFunctions;
-     * import com.pulumi.local.inputs.GetFileArgs;
-     * import com.pulumi.aws.s3.BucketObjectv2;
-     * import com.pulumi.aws.s3.BucketObjectv2Args;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = LocalFunctions.getFile(GetFileArgs.builder()
-     *             .filename(String.format(&#34;%s/foo.bar&#34;, path.module()))
-     *             .build());
-     * 
-     *         var sharedZip = new BucketObjectv2(&#34;sharedZip&#34;, BucketObjectv2Args.builder()        
-     *             .bucket(&#34;my-bucket&#34;)
-     *             .key(&#34;my-key&#34;)
-     *             .content(foo.applyValue(getFileResult -&gt; getFileResult.content()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFileResult> getFile(GetFileArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("local:index/getFile:getFile", TypeShape.of(GetFileResult.class), args, Utilities.withVersion(options));
@@ -155,217 +41,19 @@ public final class LocalFunctions {
     /**
      * Reads a file from the local filesystem.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.local.LocalFunctions;
-     * import com.pulumi.local.inputs.GetFileArgs;
-     * import com.pulumi.aws.s3.BucketObjectv2;
-     * import com.pulumi.aws.s3.BucketObjectv2Args;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = LocalFunctions.getFile(GetFileArgs.builder()
-     *             .filename(String.format(&#34;%s/foo.bar&#34;, path.module()))
-     *             .build());
-     * 
-     *         var sharedZip = new BucketObjectv2(&#34;sharedZip&#34;, BucketObjectv2Args.builder()        
-     *             .bucket(&#34;my-bucket&#34;)
-     *             .key(&#34;my-key&#34;)
-     *             .content(foo.applyValue(getFileResult -&gt; getFileResult.content()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetFileResult> getFilePlain(GetFilePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("local:index/getFile:getFile", TypeShape.of(GetFileResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.local.LocalFunctions;
-     * import com.pulumi.local.inputs.GetSensitiveFileArgs;
-     * import com.pulumi.aws.s3.BucketObjectv2;
-     * import com.pulumi.aws.s3.BucketObjectv2Args;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = LocalFunctions.getSensitiveFile(GetSensitiveFileArgs.builder()
-     *             .filename(String.format(&#34;%s/foo.bar&#34;, path.module()))
-     *             .build());
-     * 
-     *         var sharedZip = new BucketObjectv2(&#34;sharedZip&#34;, BucketObjectv2Args.builder()        
-     *             .bucket(&#34;my-bucket&#34;)
-     *             .key(&#34;my-key&#34;)
-     *             .content(foo.applyValue(getSensitiveFileResult -&gt; getSensitiveFileResult.content()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetSensitiveFileResult> getSensitiveFile(GetSensitiveFileArgs args) {
         return getSensitiveFile(args, InvokeOptions.Empty);
     }
-    /**
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.local.LocalFunctions;
-     * import com.pulumi.local.inputs.GetSensitiveFileArgs;
-     * import com.pulumi.aws.s3.BucketObjectv2;
-     * import com.pulumi.aws.s3.BucketObjectv2Args;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = LocalFunctions.getSensitiveFile(GetSensitiveFileArgs.builder()
-     *             .filename(String.format(&#34;%s/foo.bar&#34;, path.module()))
-     *             .build());
-     * 
-     *         var sharedZip = new BucketObjectv2(&#34;sharedZip&#34;, BucketObjectv2Args.builder()        
-     *             .bucket(&#34;my-bucket&#34;)
-     *             .key(&#34;my-key&#34;)
-     *             .content(foo.applyValue(getSensitiveFileResult -&gt; getSensitiveFileResult.content()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetSensitiveFileResult> getSensitiveFilePlain(GetSensitiveFilePlainArgs args) {
         return getSensitiveFilePlain(args, InvokeOptions.Empty);
     }
-    /**
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.local.LocalFunctions;
-     * import com.pulumi.local.inputs.GetSensitiveFileArgs;
-     * import com.pulumi.aws.s3.BucketObjectv2;
-     * import com.pulumi.aws.s3.BucketObjectv2Args;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = LocalFunctions.getSensitiveFile(GetSensitiveFileArgs.builder()
-     *             .filename(String.format(&#34;%s/foo.bar&#34;, path.module()))
-     *             .build());
-     * 
-     *         var sharedZip = new BucketObjectv2(&#34;sharedZip&#34;, BucketObjectv2Args.builder()        
-     *             .bucket(&#34;my-bucket&#34;)
-     *             .key(&#34;my-key&#34;)
-     *             .content(foo.applyValue(getSensitiveFileResult -&gt; getSensitiveFileResult.content()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetSensitiveFileResult> getSensitiveFile(GetSensitiveFileArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("local:index/getSensitiveFile:getSensitiveFile", TypeShape.of(GetSensitiveFileResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.local.LocalFunctions;
-     * import com.pulumi.local.inputs.GetSensitiveFileArgs;
-     * import com.pulumi.aws.s3.BucketObjectv2;
-     * import com.pulumi.aws.s3.BucketObjectv2Args;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = LocalFunctions.getSensitiveFile(GetSensitiveFileArgs.builder()
-     *             .filename(String.format(&#34;%s/foo.bar&#34;, path.module()))
-     *             .build());
-     * 
-     *         var sharedZip = new BucketObjectv2(&#34;sharedZip&#34;, BucketObjectv2Args.builder()        
-     *             .bucket(&#34;my-bucket&#34;)
-     *             .key(&#34;my-key&#34;)
-     *             .content(foo.applyValue(getSensitiveFileResult -&gt; getSensitiveFileResult.content()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetSensitiveFileResult> getSensitiveFilePlain(GetSensitiveFilePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("local:index/getSensitiveFile:getSensitiveFile", TypeShape.of(GetSensitiveFileResult.class), args, Utilities.withVersion(options));
     }
