@@ -16,14 +16,12 @@ package provider
 
 import (
 	_ "embed" // Embed bridge metadata
-	"fmt"
 	"path"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 
 	"github.com/pulumi/pulumi-local/provider/pkg/version"
 )
@@ -76,18 +74,8 @@ func Provider() tfbridge.ProviderInfo {
 		// Change this to your personal name (or a company name) that you
 		// would like to be shown in the Pulumi Registry if this package is published
 		// there.
-		Publisher: "Pulumi",
-		// LogoURL is optional but useful to help identify your package in the Pulumi Registry
-		// if this package is published there.
-		//
-		// You may host a logo on a domain you control or add an SVG logo for your package
-		// in your repository and use the raw content URL for that file as your logo URL.
-		LogoURL: "",
-		// PluginDownloadURL is an optional URL used to download the Provider
-		// for use in Pulumi programs
-		// e.g https://github.com/org/pulumi-provider-name/releases/
-		PluginDownloadURL: "",
-		Description:       "A Pulumi package for creating and managing Local cloud resources.",
+		Publisher:   "Pulumi",
+		Description: "A Pulumi package for creating and managing Local cloud resources.",
 		// category/cloud tag helps with categorizing the package in the Pulumi Registry.
 		// For all available categories, see `Keywords` in
 		// https://www.pulumi.com/docs/guides/pulumi-packages/schema/#package.
@@ -116,14 +104,12 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node": "^16.0.0", // so we can access strongly typed node definitions.
 			},
 		},
-		Python: (func() *tfbridge.PythonInfo {
-			i := &tfbridge.PythonInfo{
-				Requires: map[string]string{
-					"pulumi": ">=3.0.0,<4.0.0",
-				}}
-			i.PyProject.Enabled = true
-			return i
-		})(),
+		Python: &tfbridge.PythonInfo{
+			Requires: map[string]string{
+				"pulumi": ">=3.0.0,<4.0.0",
+			},
+			PyProject: struct{ Enabled bool }{true},
+		},
 
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: path.Join(
@@ -141,20 +127,12 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	err := x.ComputeDefaults(
-		&prov,
-		x.TokensSingleModule(
-			fmt.Sprintf("%s_", providerName),
-			"index",
-			x.MakeStandardToken(providerName),
-		),
-	)
-	contract.AssertNoErrorf(err, "Failed to compute defaults")
-
-	err = x.AutoAliasing(&prov, prov.GetMetadata())
-	contract.AssertNoErrorf(err, "Failed to apply aliasing")
+	prov.MustComputeTokens(tokens.SingleModule(providerName+"_", "index",
+		tokens.MakeStandard(providerName)))
 
 	prov.SetAutonaming(255, "-")
+
+	prov.MustApplyAutoAliases()
 
 	return prov
 }
