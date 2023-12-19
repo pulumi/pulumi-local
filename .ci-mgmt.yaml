@@ -1,9 +1,12 @@
 provider: local
 major-version: 0
-lint: false
+lint: true
 providerDefaultBranch: main
 makeTemplate: bridged
 publishRegistry: false
 env:
   LOCAL_TOKEN: ${{ secrets.LOCAL_TOKEN }}
 team: ecosystem
+plugins:
+  - name: aws
+    version: "6.14.0"
