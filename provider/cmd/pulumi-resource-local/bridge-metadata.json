@@ -17,6 +17,7 @@
             }
         }
     },
+    "auto-settings": {},
     "renames": {
         "resources": {
             "local:index/file:File": "local_file",
