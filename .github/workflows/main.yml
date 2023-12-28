@@ -324,9 +324,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Publish SDKs
-      uses: pulumi/pulumi-package-publisher@749cccccfef0c5dbc04e4c48d8c115b7f2b19207
-      with:
-        sdk: 'all,!python'
+      uses: pulumi/pulumi-package-publisher@v0.0.12
     - env:
         SLACK_CHANNEL: provider-upgrade-publish-status
         SLACK_COLOR: "#FF0000"
