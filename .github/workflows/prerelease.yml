@@ -269,7 +269,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Publish SDKs
-      uses: pulumi/pulumi-package-publisher@2a65e2577f65a985f0390acc360688adc1125c00
+      uses: pulumi/pulumi-package-publisher@357480cb2a226e963749beafbece1f278821c4ed
       with:
         sdk: 'all,!python'
     - env:
