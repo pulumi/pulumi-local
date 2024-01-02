@@ -5,6 +5,7 @@ package com.pulumi.local;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -309,7 +310,9 @@ public final class SensitiveFileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SensitiveFileArgs build() {
-            $.filename = Objects.requireNonNull($.filename, "expected parameter 'filename' to be non-null");
+            if ($.filename == null) {
+                throw new MissingRequiredPropertyException("SensitiveFileArgs", "filename");
+            }
             return $;
         }
     }
