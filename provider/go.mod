@@ -5,9 +5,9 @@ go 1.21
 replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230912190043-e6d96b3b8f7e
 
 require (
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.22.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.69.0
-	github.com/pulumi/pulumi/sdk/v3 v3.98.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.22.1-0.20231228171213-2bb619413b2c
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.69.1-0.20231228171213-2bb619413b2c
+	github.com/pulumi/pulumi/sdk/v3 v3.99.0
 	github.com/terraform-providers/terraform-provider-local v0.0.0
 )
 
@@ -172,11 +172,11 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.6.1 // indirect
+	github.com/pulumi/esc v0.6.2 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.9.8 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.6 // indirect
-	github.com/pulumi/pulumi-yaml v1.4.3 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.98.0 // indirect
+	github.com/pulumi/pulumi-yaml v1.4.4 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.99.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
