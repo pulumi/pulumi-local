@@ -4,6 +4,7 @@
 package com.pulumi.local.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetFilePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetFilePlainArgs build() {
-            $.filename = Objects.requireNonNull($.filename, "expected parameter 'filename' to be non-null");
+            if ($.filename == null) {
+                throw new MissingRequiredPropertyException("GetFilePlainArgs", "filename");
+            }
             return $;
         }
     }

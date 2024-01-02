@@ -4,6 +4,7 @@
 package com.pulumi.local.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -170,52 +171,82 @@ public final class GetFileResult {
 
         @CustomType.Setter
         public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+            if (content == null) {
+              throw new MissingRequiredPropertyException("GetFileResult", "content");
+            }
+            this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder contentBase64(String contentBase64) {
-            this.contentBase64 = Objects.requireNonNull(contentBase64);
+            if (contentBase64 == null) {
+              throw new MissingRequiredPropertyException("GetFileResult", "contentBase64");
+            }
+            this.contentBase64 = contentBase64;
             return this;
         }
         @CustomType.Setter
         public Builder contentBase64sha256(String contentBase64sha256) {
-            this.contentBase64sha256 = Objects.requireNonNull(contentBase64sha256);
+            if (contentBase64sha256 == null) {
+              throw new MissingRequiredPropertyException("GetFileResult", "contentBase64sha256");
+            }
+            this.contentBase64sha256 = contentBase64sha256;
             return this;
         }
         @CustomType.Setter
         public Builder contentBase64sha512(String contentBase64sha512) {
-            this.contentBase64sha512 = Objects.requireNonNull(contentBase64sha512);
+            if (contentBase64sha512 == null) {
+              throw new MissingRequiredPropertyException("GetFileResult", "contentBase64sha512");
+            }
+            this.contentBase64sha512 = contentBase64sha512;
             return this;
         }
         @CustomType.Setter
         public Builder contentMd5(String contentMd5) {
-            this.contentMd5 = Objects.requireNonNull(contentMd5);
+            if (contentMd5 == null) {
+              throw new MissingRequiredPropertyException("GetFileResult", "contentMd5");
+            }
+            this.contentMd5 = contentMd5;
             return this;
         }
         @CustomType.Setter
         public Builder contentSha1(String contentSha1) {
-            this.contentSha1 = Objects.requireNonNull(contentSha1);
+            if (contentSha1 == null) {
+              throw new MissingRequiredPropertyException("GetFileResult", "contentSha1");
+            }
+            this.contentSha1 = contentSha1;
             return this;
         }
         @CustomType.Setter
         public Builder contentSha256(String contentSha256) {
-            this.contentSha256 = Objects.requireNonNull(contentSha256);
+            if (contentSha256 == null) {
+              throw new MissingRequiredPropertyException("GetFileResult", "contentSha256");
+            }
+            this.contentSha256 = contentSha256;
             return this;
         }
         @CustomType.Setter
         public Builder contentSha512(String contentSha512) {
-            this.contentSha512 = Objects.requireNonNull(contentSha512);
+            if (contentSha512 == null) {
+              throw new MissingRequiredPropertyException("GetFileResult", "contentSha512");
+            }
+            this.contentSha512 = contentSha512;
             return this;
         }
         @CustomType.Setter
         public Builder filename(String filename) {
-            this.filename = Objects.requireNonNull(filename);
+            if (filename == null) {
+              throw new MissingRequiredPropertyException("GetFileResult", "filename");
+            }
+            this.filename = filename;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFileResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetFileResult build() {
