@@ -270,7 +270,7 @@ jobs:
     - name: Publish SDKs
       uses: pulumi/pulumi-package-publisher@v0.0.13
       with:
-        sdk: all
+        sdk: all,!python
     - env:
         SLACK_CHANNEL: provider-upgrade-publish-status
         SLACK_COLOR: "#FF0000"
