@@ -3,9 +3,10 @@ package provider
 import (
 	"context"
 
+	upstream "github.com/terraform-providers/terraform-provider-local/pulumi-shim"
+
 	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
-	upstream "github.com/terraform-providers/terraform-provider-local/pulumi-shim"
 )
 
 func ShimmedProvider() shim.Provider {
