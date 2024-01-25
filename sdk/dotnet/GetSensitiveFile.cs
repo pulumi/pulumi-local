@@ -12,6 +12,11 @@ namespace Pulumi.Local
     public static class GetSensitiveFile
     {
         /// <summary>
+        /// Reads a file that contains sensitive data, from the local filesystem.
+        /// 
+        /// The attributes exposed by this data source are marked as
+        /// sensitive.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -46,6 +51,11 @@ namespace Pulumi.Local
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSensitiveFileResult>("local:index/getSensitiveFile:getSensitiveFile", args ?? new GetSensitiveFileArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Reads a file that contains sensitive data, from the local filesystem.
+        /// 
+        /// The attributes exposed by this data source are marked as
+        /// sensitive.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

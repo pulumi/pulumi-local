@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Reads a file that contains sensitive data, from the local filesystem.
+ *
+ * The attributes exposed by this data source are marked as
+ * sensitive.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -87,6 +92,11 @@ export interface GetSensitiveFileResult {
     readonly id: string;
 }
 /**
+ * Reads a file that contains sensitive data, from the local filesystem.
+ *
+ * The attributes exposed by this data source are marked as
+ * sensitive.
+ *
  * ## Example Usage
  *
  * ```typescript
