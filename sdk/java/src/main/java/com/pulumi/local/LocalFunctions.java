@@ -198,6 +198,11 @@ public final class LocalFunctions {
         return Deployment.getInstance().invokeAsync("local:index/getFile:getFile", TypeShape.of(GetFileResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Reads a file that contains sensitive data, from the local filesystem.
+     * 
+     * The attributes exposed by this data source are marked as
+     * sensitive.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -241,6 +246,11 @@ public final class LocalFunctions {
         return getSensitiveFile(args, InvokeOptions.Empty);
     }
     /**
+     * Reads a file that contains sensitive data, from the local filesystem.
+     * 
+     * The attributes exposed by this data source are marked as
+     * sensitive.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -284,6 +294,11 @@ public final class LocalFunctions {
         return getSensitiveFilePlain(args, InvokeOptions.Empty);
     }
     /**
+     * Reads a file that contains sensitive data, from the local filesystem.
+     * 
+     * The attributes exposed by this data source are marked as
+     * sensitive.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -327,6 +342,11 @@ public final class LocalFunctions {
         return Deployment.getInstance().invoke("local:index/getSensitiveFile:getSensitiveFile", TypeShape.of(GetSensitiveFileResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Reads a file that contains sensitive data, from the local filesystem.
+     * 
+     * The attributes exposed by this data source are marked as
+     * sensitive.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
