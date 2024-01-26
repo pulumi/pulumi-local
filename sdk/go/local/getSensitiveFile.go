@@ -11,6 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Reads a file that contains sensitive data, from the local filesystem.
+//
+// The attributes exposed by this data source are marked as
+// sensitive.
+//
 // ## Example Usage
 //
 // ```go

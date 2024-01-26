@@ -156,6 +156,11 @@ class AwaitableGetSensitiveFileResult(GetSensitiveFileResult):
 def get_sensitive_file(filename: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSensitiveFileResult:
     """
+    Reads a file that contains sensitive data, from the local filesystem.
+
+    The attributes exposed by this data source are marked as
+    sensitive.
+
     ## Example Usage
 
     ```python
@@ -195,6 +200,11 @@ def get_sensitive_file(filename: Optional[str] = None,
 def get_sensitive_file_output(filename: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSensitiveFileResult]:
     """
+    Reads a file that contains sensitive data, from the local filesystem.
+
+    The attributes exposed by this data source are marked as
+    sensitive.
+
     ## Example Usage
 
     ```python
