@@ -21,6 +21,8 @@ public final class LocalFunctions {
      * Reads a file from the local filesystem.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -57,6 +59,7 @@ public final class LocalFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFileResult> getFile(GetFileArgs args) {
@@ -66,6 +69,8 @@ public final class LocalFunctions {
      * Reads a file from the local filesystem.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -102,6 +107,7 @@ public final class LocalFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFileResult> getFilePlain(GetFilePlainArgs args) {
@@ -111,6 +117,8 @@ public final class LocalFunctions {
      * Reads a file from the local filesystem.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -147,6 +155,7 @@ public final class LocalFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFileResult> getFile(GetFileArgs args, InvokeOptions options) {
@@ -156,6 +165,8 @@ public final class LocalFunctions {
      * Reads a file from the local filesystem.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -192,6 +203,7 @@ public final class LocalFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFileResult> getFilePlain(GetFilePlainArgs args, InvokeOptions options) {
@@ -204,6 +216,8 @@ public final class LocalFunctions {
      * sensitive.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -240,6 +254,7 @@ public final class LocalFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSensitiveFileResult> getSensitiveFile(GetSensitiveFileArgs args) {
@@ -252,6 +267,8 @@ public final class LocalFunctions {
      * sensitive.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -288,6 +305,7 @@ public final class LocalFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSensitiveFileResult> getSensitiveFilePlain(GetSensitiveFilePlainArgs args) {
@@ -300,6 +318,8 @@ public final class LocalFunctions {
      * sensitive.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -336,6 +356,7 @@ public final class LocalFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSensitiveFileResult> getSensitiveFile(GetSensitiveFileArgs args, InvokeOptions options) {
@@ -348,6 +369,8 @@ public final class LocalFunctions {
      * sensitive.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -384,6 +407,7 @@ public final class LocalFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSensitiveFileResult> getSensitiveFilePlain(GetSensitiveFilePlainArgs args, InvokeOptions options) {
