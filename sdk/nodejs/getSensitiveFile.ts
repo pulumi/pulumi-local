@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,6 +27,7 @@ import * as utilities from "./utilities";
  *     content: foo.then(foo => foo.content),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSensitiveFile(args: GetSensitiveFileArgs, opts?: pulumi.InvokeOptions): Promise<GetSensitiveFileResult> {
 
@@ -99,6 +101,7 @@ export interface GetSensitiveFileResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -113,6 +116,7 @@ export interface GetSensitiveFileResult {
  *     content: foo.then(foo => foo.content),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSensitiveFileOutput(args: GetSensitiveFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSensitiveFileResult> {
     return pulumi.output(args).apply((a: any) => getSensitiveFile(a, opts))

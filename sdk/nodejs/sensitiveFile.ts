@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as local from "@pulumi/local";
@@ -16,6 +17,7 @@ import * as utilities from "./utilities";
  *     filename: `${path.module}/foo.bar`,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class SensitiveFile extends pulumi.CustomResource {
     /**
