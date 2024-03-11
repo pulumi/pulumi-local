@@ -12,6 +12,7 @@ namespace Pulumi.Local
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,6 +29,7 @@ namespace Pulumi.Local
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [LocalResourceType("local:index/sensitiveFile:SensitiveFile")]
     public partial class SensitiveFile : global::Pulumi.CustomResource
