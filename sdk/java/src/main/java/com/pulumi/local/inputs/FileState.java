@@ -209,10 +209,10 @@ public final class FileState extends com.pulumi.resources.ResourceArgs {
      * resource instead.
      * 
      * @deprecated
-     * Use the `local_sensitive_file` resource instead
+     * Use the `local.SensitiveFile` resource instead
      * 
      */
-    @Deprecated /* Use the `local_sensitive_file` resource instead */
+    @Deprecated /* Use the `local.SensitiveFile` resource instead */
     @Import(name="sensitiveContent")
     private @Nullable Output<String> sensitiveContent;
 
@@ -225,10 +225,10 @@ public final class FileState extends com.pulumi.resources.ResourceArgs {
      * resource instead.
      * 
      * @deprecated
-     * Use the `local_sensitive_file` resource instead
+     * Use the `local.SensitiveFile` resource instead
      * 
      */
-    @Deprecated /* Use the `local_sensitive_file` resource instead */
+    @Deprecated /* Use the `local.SensitiveFile` resource instead */
     public Optional<Output<String>> sensitiveContent() {
         return Optional.ofNullable(this.sensitiveContent);
     }
@@ -550,10 +550,10 @@ public final class FileState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the `local_sensitive_file` resource instead
+         * Use the `local.SensitiveFile` resource instead
          * 
          */
-        @Deprecated /* Use the `local_sensitive_file` resource instead */
+        @Deprecated /* Use the `local.SensitiveFile` resource instead */
         public Builder sensitiveContent(@Nullable Output<String> sensitiveContent) {
             $.sensitiveContent = sensitiveContent;
             return this;
@@ -570,10 +570,10 @@ public final class FileState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the `local_sensitive_file` resource instead
+         * Use the `local.SensitiveFile` resource instead
          * 
          */
-        @Deprecated /* Use the `local_sensitive_file` resource instead */
+        @Deprecated /* Use the `local.SensitiveFile` resource instead */
         public Builder sensitiveContent(String sensitiveContent) {
             return sensitiveContent(Output.of(sensitiveContent));
         }
