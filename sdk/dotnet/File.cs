@@ -230,7 +230,7 @@ namespace Pulumi.Local
         /// If in need to use *sensitive* content, please use the `local.SensitiveFile`
         /// resource instead.
         /// </summary>
-        [Obsolete(@"Use the `local_sensitive_file` resource instead")]
+        [Obsolete(@"Use the `local.SensitiveFile` resource instead")]
         public Input<string>? SensitiveContent
         {
             get => _sensitiveContent;
@@ -344,7 +344,7 @@ namespace Pulumi.Local
         /// If in need to use *sensitive* content, please use the `local.SensitiveFile`
         /// resource instead.
         /// </summary>
-        [Obsolete(@"Use the `local_sensitive_file` resource instead")]
+        [Obsolete(@"Use the `local.SensitiveFile` resource instead")]
         public Input<string>? SensitiveContent
         {
             get => _sensitiveContent;

@@ -84,7 +84,7 @@ type File struct {
 	// If in need to use *sensitive* content, please use the `SensitiveFile`
 	// resource instead.
 	//
-	// Deprecated: Use the `local_sensitive_file` resource instead
+	// Deprecated: Use the `SensitiveFile` resource instead
 	SensitiveContent pulumi.StringPtrOutput `pulumi:"sensitiveContent"`
 	// Path to file to use as source for the one we are creating.
 	// Conflicts with `content`, `sensitiveContent` and `contentBase64`.
@@ -171,7 +171,7 @@ type fileState struct {
 	// If in need to use *sensitive* content, please use the `SensitiveFile`
 	// resource instead.
 	//
-	// Deprecated: Use the `local_sensitive_file` resource instead
+	// Deprecated: Use the `SensitiveFile` resource instead
 	SensitiveContent *string `pulumi:"sensitiveContent"`
 	// Path to file to use as source for the one we are creating.
 	// Conflicts with `content`, `sensitiveContent` and `contentBase64`.
@@ -219,7 +219,7 @@ type FileState struct {
 	// If in need to use *sensitive* content, please use the `SensitiveFile`
 	// resource instead.
 	//
-	// Deprecated: Use the `local_sensitive_file` resource instead
+	// Deprecated: Use the `SensitiveFile` resource instead
 	SensitiveContent pulumi.StringPtrInput
 	// Path to file to use as source for the one we are creating.
 	// Conflicts with `content`, `sensitiveContent` and `contentBase64`.
@@ -259,7 +259,7 @@ type fileArgs struct {
 	// If in need to use *sensitive* content, please use the `SensitiveFile`
 	// resource instead.
 	//
-	// Deprecated: Use the `local_sensitive_file` resource instead
+	// Deprecated: Use the `SensitiveFile` resource instead
 	SensitiveContent *string `pulumi:"sensitiveContent"`
 	// Path to file to use as source for the one we are creating.
 	// Conflicts with `content`, `sensitiveContent` and `contentBase64`.
@@ -296,7 +296,7 @@ type FileArgs struct {
 	// If in need to use *sensitive* content, please use the `SensitiveFile`
 	// resource instead.
 	//
-	// Deprecated: Use the `local_sensitive_file` resource instead
+	// Deprecated: Use the `SensitiveFile` resource instead
 	SensitiveContent pulumi.StringPtrInput
 	// Path to file to use as source for the one we are creating.
 	// Conflicts with `content`, `sensitiveContent` and `contentBase64`.
@@ -463,7 +463,7 @@ func (o FileOutput) Filename() pulumi.StringOutput {
 // If in need to use *sensitive* content, please use the `SensitiveFile`
 // resource instead.
 //
-// Deprecated: Use the `local_sensitive_file` resource instead
+// Deprecated: Use the `SensitiveFile` resource instead
 func (o FileOutput) SensitiveContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *File) pulumi.StringPtrOutput { return v.SensitiveContent }).(pulumi.StringPtrOutput)
 }

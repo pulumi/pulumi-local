@@ -40,7 +40,7 @@ import (
 //			_, err = s3.NewBucketObjectv2(ctx, "sharedZip", &s3.BucketObjectv2Args{
 //				Bucket:  pulumi.Any("my-bucket"),
 //				Key:     pulumi.String("my-key"),
-//				Content: *pulumi.String(foo.Content),
+//				Content: pulumi.String(foo.Content),
 //			})
 //			if err != nil {
 //				return err

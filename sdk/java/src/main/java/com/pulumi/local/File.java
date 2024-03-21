@@ -236,10 +236,10 @@ public class File extends com.pulumi.resources.CustomResource {
      * resource instead.
      * 
      * @deprecated
-     * Use the `local_sensitive_file` resource instead
+     * Use the `local.SensitiveFile` resource instead
      * 
      */
-    @Deprecated /* Use the `local_sensitive_file` resource instead */
+    @Deprecated /* Use the `local.SensitiveFile` resource instead */
     @Export(name="sensitiveContent", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sensitiveContent;
 
