@@ -104,7 +104,7 @@
                 "sensitiveContent": {
                     "type": "string",
                     "description": "Sensitive content to store in the file, expected to be an UTF-8 encoded string.\nWill not be displayed in diffs.\nConflicts with `content`, `content_base64` and `source`.\nExactly one of these four arguments must be specified.\nIf in need to use *sensitive* content, please use the `local.SensitiveFile`\nresource instead.\n",
-                    "deprecationMessage": "Use the `local.SensitiveFile` resource instead",
+                    "deprecationMessage": "Use the `local_sensitive_file` resource instead",
                     "secret": true
                 },
                 "source": {
@@ -147,7 +147,7 @@
                 "sensitiveContent": {
                     "type": "string",
                     "description": "Sensitive content to store in the file, expected to be an UTF-8 encoded string.\nWill not be displayed in diffs.\nConflicts with `content`, `content_base64` and `source`.\nExactly one of these four arguments must be specified.\nIf in need to use *sensitive* content, please use the `local.SensitiveFile`\nresource instead.\n",
-                    "deprecationMessage": "Use the `local.SensitiveFile` resource instead",
+                    "deprecationMessage": "Use the `local_sensitive_file` resource instead",
                     "secret": true
                 },
                 "source": {
@@ -208,7 +208,7 @@
                     "sensitiveContent": {
                         "type": "string",
                         "description": "Sensitive content to store in the file, expected to be an UTF-8 encoded string.\nWill not be displayed in diffs.\nConflicts with `content`, `content_base64` and `source`.\nExactly one of these four arguments must be specified.\nIf in need to use *sensitive* content, please use the `local.SensitiveFile`\nresource instead.\n",
-                        "deprecationMessage": "Use the `local.SensitiveFile` resource instead",
+                        "deprecationMessage": "Use the `local_sensitive_file` resource instead",
                         "secret": true
                     },
                     "source": {
