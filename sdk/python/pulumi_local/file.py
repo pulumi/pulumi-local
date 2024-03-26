@@ -58,8 +58,8 @@ class FileArgs:
         if file_permission is not None:
             pulumi.set(__self__, "file_permission", file_permission)
         if sensitive_content is not None:
-            warnings.warn("""Use the `SensitiveFile` resource instead""", DeprecationWarning)
-            pulumi.log.warn("""sensitive_content is deprecated: Use the `SensitiveFile` resource instead""")
+            warnings.warn("""Use the `local_sensitive_file` resource instead""", DeprecationWarning)
+            pulumi.log.warn("""sensitive_content is deprecated: Use the `local_sensitive_file` resource instead""")
         if sensitive_content is not None:
             pulumi.set(__self__, "sensitive_content", sensitive_content)
         if source is not None:
@@ -146,8 +146,8 @@ class FileArgs:
         If in need to use *sensitive* content, please use the `SensitiveFile`
         resource instead.
         """
-        warnings.warn("""Use the `SensitiveFile` resource instead""", DeprecationWarning)
-        pulumi.log.warn("""sensitive_content is deprecated: Use the `SensitiveFile` resource instead""")
+        warnings.warn("""Use the `local_sensitive_file` resource instead""", DeprecationWarning)
+        pulumi.log.warn("""sensitive_content is deprecated: Use the `local_sensitive_file` resource instead""")
 
         return pulumi.get(self, "sensitive_content")
 
@@ -242,8 +242,8 @@ class _FileState:
         if filename is not None:
             pulumi.set(__self__, "filename", filename)
         if sensitive_content is not None:
-            warnings.warn("""Use the `SensitiveFile` resource instead""", DeprecationWarning)
-            pulumi.log.warn("""sensitive_content is deprecated: Use the `SensitiveFile` resource instead""")
+            warnings.warn("""Use the `local_sensitive_file` resource instead""", DeprecationWarning)
+            pulumi.log.warn("""sensitive_content is deprecated: Use the `local_sensitive_file` resource instead""")
         if sensitive_content is not None:
             pulumi.set(__self__, "sensitive_content", sensitive_content)
         if source is not None:
@@ -402,8 +402,8 @@ class _FileState:
         If in need to use *sensitive* content, please use the `SensitiveFile`
         resource instead.
         """
-        warnings.warn("""Use the `SensitiveFile` resource instead""", DeprecationWarning)
-        pulumi.log.warn("""sensitive_content is deprecated: Use the `SensitiveFile` resource instead""")
+        warnings.warn("""Use the `local_sensitive_file` resource instead""", DeprecationWarning)
+        pulumi.log.warn("""sensitive_content is deprecated: Use the `local_sensitive_file` resource instead""")
 
         return pulumi.get(self, "sensitive_content")
 
@@ -737,8 +737,8 @@ class File(pulumi.CustomResource):
         If in need to use *sensitive* content, please use the `SensitiveFile`
         resource instead.
         """
-        warnings.warn("""Use the `SensitiveFile` resource instead""", DeprecationWarning)
-        pulumi.log.warn("""sensitive_content is deprecated: Use the `SensitiveFile` resource instead""")
+        warnings.warn("""Use the `local_sensitive_file` resource instead""", DeprecationWarning)
+        pulumi.log.warn("""sensitive_content is deprecated: Use the `local_sensitive_file` resource instead""")
 
         return pulumi.get(self, "sensitive_content")
 
