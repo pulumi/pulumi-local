@@ -109,7 +109,7 @@ export class File extends pulumi.CustomResource {
      * If in need to use *sensitive* content, please use the `local.SensitiveFile`
      * resource instead.
      *
-     * @deprecated Use the `local.SensitiveFile` resource instead
+     * @deprecated Use the `local_sensitive_file` resource instead
      */
     public readonly sensitiveContent!: pulumi.Output<string | undefined>;
     /**
@@ -237,7 +237,7 @@ export interface FileState {
      * If in need to use *sensitive* content, please use the `local.SensitiveFile`
      * resource instead.
      *
-     * @deprecated Use the `local.SensitiveFile` resource instead
+     * @deprecated Use the `local_sensitive_file` resource instead
      */
     sensitiveContent?: pulumi.Input<string>;
     /**
@@ -290,7 +290,7 @@ export interface FileArgs {
      * If in need to use *sensitive* content, please use the `local.SensitiveFile`
      * resource instead.
      *
-     * @deprecated Use the `local.SensitiveFile` resource instead
+     * @deprecated Use the `local_sensitive_file` resource instead
      */
     sensitiveContent?: pulumi.Input<string>;
     /**
