@@ -9,25 +9,6 @@ import * as utilities from "./utilities";
  *
  * The attributes exposed by this data source are marked as
  * sensitive.
- *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as local from "@pulumi/local";
- *
- * const foo = local.getSensitiveFile({
- *     filename: `${path.module}/foo.bar`,
- * });
- * const sharedZip = new aws.s3.BucketObjectv2("sharedZip", {
- *     bucket: "my-bucket",
- *     key: "my-key",
- *     content: foo.then(foo => foo.content),
- * });
- * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSensitiveFile(args: GetSensitiveFileArgs, opts?: pulumi.InvokeOptions): Promise<GetSensitiveFileResult> {
 
@@ -98,25 +79,6 @@ export interface GetSensitiveFileResult {
  *
  * The attributes exposed by this data source are marked as
  * sensitive.
- *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as local from "@pulumi/local";
- *
- * const foo = local.getSensitiveFile({
- *     filename: `${path.module}/foo.bar`,
- * });
- * const sharedZip = new aws.s3.BucketObjectv2("sharedZip", {
- *     bucket: "my-bucket",
- *     key: "my-key",
- *     content: foo.then(foo => foo.content),
- * });
- * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSensitiveFileOutput(args: GetSensitiveFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSensitiveFileResult> {
     return pulumi.output(args).apply((a: any) => getSensitiveFile(a, opts))

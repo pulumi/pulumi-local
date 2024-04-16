@@ -161,22 +161,6 @@ def get_sensitive_file(filename: Optional[str] = None,
     The attributes exposed by this data source are marked as
     sensitive.
 
-    ## Example Usage
-
-    <!--Start PulumiCodeChooser -->
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_local as local
-
-    foo = local.get_sensitive_file(filename=f"{path['module']}/foo.bar")
-    shared_zip = aws.s3.BucketObjectv2("sharedZip",
-        bucket="my-bucket",
-        key="my-key",
-        content=foo.content)
-    ```
-    <!--End PulumiCodeChooser -->
-
 
     :param str filename: Path to the file that will be read. The data source will return an error if the file does not exist.
     """
@@ -206,22 +190,6 @@ def get_sensitive_file_output(filename: Optional[pulumi.Input[str]] = None,
 
     The attributes exposed by this data source are marked as
     sensitive.
-
-    ## Example Usage
-
-    <!--Start PulumiCodeChooser -->
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_local as local
-
-    foo = local.get_sensitive_file(filename=f"{path['module']}/foo.bar")
-    shared_zip = aws.s3.BucketObjectv2("sharedZip",
-        bucket="my-bucket",
-        key="my-key",
-        content=foo.content)
-    ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str filename: Path to the file that will be read. The data source will return an error if the file does not exist.

@@ -442,17 +442,6 @@ class File(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_local as local
-
-        foo = local.File("foo",
-            content="foo!",
-            filename=f"{path['module']}/foo.bar")
-        ```
-        <!--End PulumiCodeChooser -->
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: Content to store in the file, expected to be a UTF-8 encoded string.
@@ -488,17 +477,6 @@ class File(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_local as local
-
-        foo = local.File("foo",
-            content="foo!",
-            filename=f"{path['module']}/foo.bar")
-        ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param FileArgs args: The arguments to use to populate this resource's properties.

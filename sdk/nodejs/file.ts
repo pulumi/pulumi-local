@@ -6,18 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as local from "@pulumi/local";
- *
- * const foo = new local.File("foo", {
- *     content: "foo!",
- *     filename: `${path.module}/foo.bar`,
- * });
- * ```
- * <!--End PulumiCodeChooser -->
  */
 export class File extends pulumi.CustomResource {
     /**

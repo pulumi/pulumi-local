@@ -16,34 +16,6 @@ namespace Pulumi.Local
         /// 
         /// The attributes exposed by this data source are marked as
         /// sensitive.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Local = Pulumi.Local;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Local.GetSensitiveFile.Invoke(new()
-        ///     {
-        ///         Filename = $"{path.Module}/foo.bar",
-        ///     });
-        /// 
-        ///     var sharedZip = new Aws.S3.BucketObjectv2("sharedZip", new()
-        ///     {
-        ///         Bucket = "my-bucket",
-        ///         Key = "my-key",
-        ///         Content = foo.Apply(getSensitiveFileResult =&gt; getSensitiveFileResult.Content),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSensitiveFileResult> InvokeAsync(GetSensitiveFileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSensitiveFileResult>("local:index/getSensitiveFile:getSensitiveFile", args ?? new GetSensitiveFileArgs(), options.WithDefaults());
@@ -53,34 +25,6 @@ namespace Pulumi.Local
         /// 
         /// The attributes exposed by this data source are marked as
         /// sensitive.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Local = Pulumi.Local;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Local.GetSensitiveFile.Invoke(new()
-        ///     {
-        ///         Filename = $"{path.Module}/foo.bar",
-        ///     });
-        /// 
-        ///     var sharedZip = new Aws.S3.BucketObjectv2("sharedZip", new()
-        ///     {
-        ///         Bucket = "my-bucket",
-        ///         Key = "my-key",
-        ///         Content = foo.Apply(getSensitiveFileResult =&gt; getSensitiveFileResult.Content),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSensitiveFileResult> Invoke(GetSensitiveFileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSensitiveFileResult>("local:index/getSensitiveFile:getSensitiveFile", args ?? new GetSensitiveFileInvokeArgs(), options.WithDefaults());

@@ -6,25 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Reads a file from the local filesystem.
- *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as local from "@pulumi/local";
- *
- * const foo = local.getFile({
- *     filename: `${path.module}/foo.bar`,
- * });
- * const sharedZip = new aws.s3.BucketObjectv2("sharedZip", {
- *     bucket: "my-bucket",
- *     key: "my-key",
- *     content: foo.then(foo => foo.content),
- * });
- * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFile(args: GetFileArgs, opts?: pulumi.InvokeOptions): Promise<GetFileResult> {
 
@@ -92,25 +73,6 @@ export interface GetFileResult {
 }
 /**
  * Reads a file from the local filesystem.
- *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as local from "@pulumi/local";
- *
- * const foo = local.getFile({
- *     filename: `${path.module}/foo.bar`,
- * });
- * const sharedZip = new aws.s3.BucketObjectv2("sharedZip", {
- *     bucket: "my-bucket",
- *     key: "my-key",
- *     content: foo.then(foo => foo.content),
- * });
- * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileResult> {
     return pulumi.output(args).apply((a: any) => getFile(a, opts))
