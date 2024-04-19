@@ -15,45 +15,6 @@ import (
 //
 // The attributes exposed by this data source are marked as
 // sensitive.
-//
-// ## Example Usage
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-local/sdk/go/local"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := local.LookupSensitiveFile(ctx, &local.LookupSensitiveFileArgs{
-//				Filename: fmt.Sprintf("%v/foo.bar", path.Module),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketObjectv2(ctx, "sharedZip", &s3.BucketObjectv2Args{
-//				Bucket:  pulumi.Any("my-bucket"),
-//				Key:     pulumi.String("my-key"),
-//				Content: pulumi.String(foo.Content),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 func LookupSensitiveFile(ctx *pulumi.Context, args *LookupSensitiveFileArgs, opts ...pulumi.InvokeOption) (*LookupSensitiveFileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSensitiveFileResult
