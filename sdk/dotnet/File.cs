@@ -12,7 +12,6 @@ namespace Pulumi.Local
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,7 +28,6 @@ namespace Pulumi.Local
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [LocalResourceType("local:index/file:File")]
     public partial class File : global::Pulumi.CustomResource

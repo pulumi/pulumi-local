@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,7 +23,6 @@ import * as utilities from "./utilities";
  *     content: foo.then(foo => foo.content),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFile(args: GetFileArgs, opts?: pulumi.InvokeOptions): Promise<GetFileResult> {
 
@@ -95,7 +93,6 @@ export interface GetFileResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -110,7 +107,6 @@ export interface GetFileResult {
  *     content: foo.then(foo => foo.content),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileResult> {
     return pulumi.output(args).apply((a: any) => getFile(a, opts))

@@ -19,7 +19,6 @@ namespace Pulumi.Local
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -43,7 +42,6 @@ namespace Pulumi.Local
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSensitiveFileResult> InvokeAsync(GetSensitiveFileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSensitiveFileResult>("local:index/getSensitiveFile:getSensitiveFile", args ?? new GetSensitiveFileArgs(), options.WithDefaults());
@@ -56,7 +54,6 @@ namespace Pulumi.Local
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -80,7 +77,6 @@ namespace Pulumi.Local
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSensitiveFileResult> Invoke(GetSensitiveFileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSensitiveFileResult>("local:index/getSensitiveFile:getSensitiveFile", args ?? new GetSensitiveFileInvokeArgs(), options.WithDefaults());

@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,7 +52,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupSensitiveFile(ctx *pulumi.Context, args *LookupSensitiveFileArgs, opts ...pulumi.InvokeOption) (*LookupSensitiveFileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSensitiveFileResult

@@ -160,7 +160,6 @@ def get_file(filename: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -172,7 +171,6 @@ def get_file(filename: Optional[str] = None,
         key="my-key",
         content=foo.content)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str filename: Path to the file that will be read. The data source will return an error if the file does not exist.
@@ -203,7 +201,6 @@ def get_file_output(filename: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -215,7 +212,6 @@ def get_file_output(filename: Optional[pulumi.Input[str]] = None,
         key="my-key",
         content=foo.content)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str filename: Path to the file that will be read. The data source will return an error if the file does not exist.
