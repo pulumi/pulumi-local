@@ -1,4 +1,5 @@
 {
   "resource": true,
-  "name": "local"
+  "name": "local",
+  "version": "0.0.0-alpha.0+dev"
 }
