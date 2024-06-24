@@ -137,6 +137,7 @@ class FileArgs:
 
     @property
     @pulumi.getter(name="sensitiveContent")
+    @_utilities.deprecated("""Use the `SensitiveFile` resource instead""")
     def sensitive_content(self) -> Optional[pulumi.Input[str]]:
         """
         Sensitive content to store in the file, expected to be an UTF-8 encoded string.
@@ -146,9 +147,6 @@ class FileArgs:
         If in need to use *sensitive* content, please use the `SensitiveFile`
         resource instead.
         """
-        warnings.warn("""Use the `SensitiveFile` resource instead""", DeprecationWarning)
-        pulumi.log.warn("""sensitive_content is deprecated: Use the `SensitiveFile` resource instead""")
-
         return pulumi.get(self, "sensitive_content")
 
     @sensitive_content.setter
@@ -393,6 +391,7 @@ class _FileState:
 
     @property
     @pulumi.getter(name="sensitiveContent")
+    @_utilities.deprecated("""Use the `SensitiveFile` resource instead""")
     def sensitive_content(self) -> Optional[pulumi.Input[str]]:
         """
         Sensitive content to store in the file, expected to be an UTF-8 encoded string.
@@ -402,9 +401,6 @@ class _FileState:
         If in need to use *sensitive* content, please use the `SensitiveFile`
         resource instead.
         """
-        warnings.warn("""Use the `SensitiveFile` resource instead""", DeprecationWarning)
-        pulumi.log.warn("""sensitive_content is deprecated: Use the `SensitiveFile` resource instead""")
-
         return pulumi.get(self, "sensitive_content")
 
     @sensitive_content.setter
@@ -706,6 +702,7 @@ class File(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sensitiveContent")
+    @_utilities.deprecated("""Use the `SensitiveFile` resource instead""")
     def sensitive_content(self) -> pulumi.Output[Optional[str]]:
         """
         Sensitive content to store in the file, expected to be an UTF-8 encoded string.
@@ -715,9 +712,6 @@ class File(pulumi.CustomResource):
         If in need to use *sensitive* content, please use the `SensitiveFile`
         resource instead.
         """
-        warnings.warn("""Use the `SensitiveFile` resource instead""", DeprecationWarning)
-        pulumi.log.warn("""sensitive_content is deprecated: Use the `SensitiveFile` resource instead""")
-
         return pulumi.get(self, "sensitive_content")
 
     @property
