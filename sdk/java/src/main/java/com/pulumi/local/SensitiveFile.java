@@ -218,7 +218,7 @@ public class SensitiveFile extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SensitiveFile(String name) {
+    public SensitiveFile(java.lang.String name) {
         this(name, SensitiveFileArgs.Empty);
     }
     /**
@@ -226,7 +226,7 @@ public class SensitiveFile extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SensitiveFile(String name, SensitiveFileArgs args) {
+    public SensitiveFile(java.lang.String name, SensitiveFileArgs args) {
         this(name, args, null);
     }
     /**
@@ -235,15 +235,22 @@ public class SensitiveFile extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SensitiveFile(String name, SensitiveFileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("local:index/sensitiveFile:SensitiveFile", name, args == null ? SensitiveFileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SensitiveFile(java.lang.String name, SensitiveFileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("local:index/sensitiveFile:SensitiveFile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SensitiveFile(String name, Output<String> id, @Nullable SensitiveFileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("local:index/sensitiveFile:SensitiveFile", name, state, makeResourceOptions(options, id));
+    private SensitiveFile(java.lang.String name, Output<java.lang.String> id, @Nullable SensitiveFileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("local:index/sensitiveFile:SensitiveFile", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SensitiveFileArgs makeArgs(SensitiveFileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SensitiveFileArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -263,7 +270,7 @@ public class SensitiveFile extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SensitiveFile get(String name, Output<String> id, @Nullable SensitiveFileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SensitiveFile get(java.lang.String name, Output<java.lang.String> id, @Nullable SensitiveFileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SensitiveFile(name, id, state, options);
     }
 }
