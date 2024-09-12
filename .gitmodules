@@ -1,4 +1,0 @@
-[submodule "upstream"]
-	path = upstream
-	url = https://github.com/terraform-providers/terraform-provider-local.git
-	ignore = dirty
