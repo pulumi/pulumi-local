@@ -1,3 +1,9 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: guineveresaenger <guinevere@pulumi.com>
+Date: Thu, 12 Sep 2024 14:04:48 -0700
+Subject: [PATCH] Add shim for internal access
+
+
 diff --git a/pulumi-shim/pf.go b/pulumi-shim/pf.go
 new file mode 100644
 index 0000000..9236022
