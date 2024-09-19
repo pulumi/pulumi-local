@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
  * Reads a file from the local filesystem.
  */
 export function getFile(args: GetFileArgs, opts?: pulumi.InvokeOptions): Promise<GetFileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("local:index/getFile:getFile", {
         "filename": args.filename,
@@ -75,7 +74,10 @@ export interface GetFileResult {
  * Reads a file from the local filesystem.
  */
 export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileResult> {
-    return pulumi.output(args).apply((a: any) => getFile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("local:index/getFile:getFile", {
+        "filename": args.filename,
+    }, opts);
 }
 
 /**
