@@ -55,14 +55,20 @@ type LookupFileResult struct {
 
 func LookupFileOutput(ctx *pulumi.Context, args LookupFileOutputArgs, opts ...pulumi.InvokeOption) LookupFileResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFileResult, error) {
+		ApplyT(func(v interface{}) (LookupFileResultOutput, error) {
 			args := v.(LookupFileArgs)
-			r, err := LookupFile(ctx, &args, opts...)
-			var s LookupFileResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFileResult
+			secret, err := ctx.InvokePackageRaw("local:index/getFile:getFile", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFileResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFileResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFileResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFileResultOutput)
 }
 

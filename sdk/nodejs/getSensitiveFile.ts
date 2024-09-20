@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  * sensitive.
  */
 export function getSensitiveFile(args: GetSensitiveFileArgs, opts?: pulumi.InvokeOptions): Promise<GetSensitiveFileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("local:index/getSensitiveFile:getSensitiveFile", {
         "filename": args.filename,
@@ -81,7 +80,10 @@ export interface GetSensitiveFileResult {
  * sensitive.
  */
 export function getSensitiveFileOutput(args: GetSensitiveFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSensitiveFileResult> {
-    return pulumi.output(args).apply((a: any) => getSensitiveFile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("local:index/getSensitiveFile:getSensitiveFile", {
+        "filename": args.filename,
+    }, opts);
 }
 
 /**
