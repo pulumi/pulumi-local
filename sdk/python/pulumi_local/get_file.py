@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -177,9 +182,6 @@ def get_file(filename: Optional[str] = None,
         content_sha512=pulumi.get(__ret__, 'content_sha512'),
         filename=pulumi.get(__ret__, 'filename'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_file)
 def get_file_output(filename: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileResult]:
     """
@@ -188,4 +190,18 @@ def get_file_output(filename: Optional[pulumi.Input[str]] = None,
 
     :param str filename: Path to the file that will be read. The data source will return an error if the file does not exist.
     """
-    ...
+    __args__ = dict()
+    __args__['filename'] = filename
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('local:index/getFile:getFile', __args__, opts=opts, typ=GetFileResult)
+    return __ret__.apply(lambda __response__: GetFileResult(
+        content=pulumi.get(__response__, 'content'),
+        content_base64=pulumi.get(__response__, 'content_base64'),
+        content_base64sha256=pulumi.get(__response__, 'content_base64sha256'),
+        content_base64sha512=pulumi.get(__response__, 'content_base64sha512'),
+        content_md5=pulumi.get(__response__, 'content_md5'),
+        content_sha1=pulumi.get(__response__, 'content_sha1'),
+        content_sha256=pulumi.get(__response__, 'content_sha256'),
+        content_sha512=pulumi.get(__response__, 'content_sha512'),
+        filename=pulumi.get(__response__, 'filename'),
+        id=pulumi.get(__response__, 'id')))
