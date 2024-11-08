@@ -5,7 +5,7 @@ import (
 
 	upstream "github.com/terraform-providers/terraform-provider-local/pulumi-shim"
 
-	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
+	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 )
 
