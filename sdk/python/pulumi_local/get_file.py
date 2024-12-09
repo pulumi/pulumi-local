@@ -183,7 +183,7 @@ def get_file(filename: Optional[str] = None,
         filename=pulumi.get(__ret__, 'filename'),
         id=pulumi.get(__ret__, 'id'))
 def get_file_output(filename: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileResult]:
     """
     Reads a file from the local filesystem.
 
@@ -192,7 +192,7 @@ def get_file_output(filename: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['filename'] = filename
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('local:index/getFile:getFile', __args__, opts=opts, typ=GetFileResult)
     return __ret__.apply(lambda __response__: GetFileResult(
         content=pulumi.get(__response__, 'content'),

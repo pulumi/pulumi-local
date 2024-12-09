@@ -79,7 +79,7 @@ export interface GetSensitiveFileResult {
  * The attributes exposed by this data source are marked as
  * sensitive.
  */
-export function getSensitiveFileOutput(args: GetSensitiveFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSensitiveFileResult> {
+export function getSensitiveFileOutput(args: GetSensitiveFileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSensitiveFileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("local:index/getSensitiveFile:getSensitiveFile", {
         "filename": args.filename,

@@ -73,7 +73,7 @@ export interface GetFileResult {
 /**
  * Reads a file from the local filesystem.
  */
-export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileResult> {
+export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("local:index/getFile:getFile", {
         "filename": args.filename,
