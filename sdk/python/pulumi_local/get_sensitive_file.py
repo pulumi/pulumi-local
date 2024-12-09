@@ -186,7 +186,7 @@ def get_sensitive_file(filename: Optional[str] = None,
         filename=pulumi.get(__ret__, 'filename'),
         id=pulumi.get(__ret__, 'id'))
 def get_sensitive_file_output(filename: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSensitiveFileResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSensitiveFileResult]:
     """
     Reads a file that contains sensitive data, from the local filesystem.
 
@@ -198,7 +198,7 @@ def get_sensitive_file_output(filename: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['filename'] = filename
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('local:index/getSensitiveFile:getSensitiveFile', __args__, opts=opts, typ=GetSensitiveFileResult)
     return __ret__.apply(lambda __response__: GetSensitiveFileResult(
         content=pulumi.get(__response__, 'content'),
