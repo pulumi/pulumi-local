@@ -57,21 +57,11 @@ type LookupSensitiveFileResult struct {
 }
 
 func LookupSensitiveFileOutput(ctx *pulumi.Context, args LookupSensitiveFileOutputArgs, opts ...pulumi.InvokeOption) LookupSensitiveFileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSensitiveFileResultOutput, error) {
 			args := v.(LookupSensitiveFileArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSensitiveFileResult
-			secret, err := ctx.InvokePackageRaw("local:index/getSensitiveFile:getSensitiveFile", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSensitiveFileResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSensitiveFileResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSensitiveFileResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("local:index/getSensitiveFile:getSensitiveFile", args, LookupSensitiveFileResultOutput{}, options).(LookupSensitiveFileResultOutput), nil
 		}).(LookupSensitiveFileResultOutput)
 }
 
