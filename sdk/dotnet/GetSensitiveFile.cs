@@ -28,6 +28,15 @@ namespace Pulumi.Local
         /// </summary>
         public static Output<GetSensitiveFileResult> Invoke(GetSensitiveFileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSensitiveFileResult>("local:index/getSensitiveFile:getSensitiveFile", args ?? new GetSensitiveFileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Reads a file that contains sensitive data, from the local filesystem.
+        /// 
+        /// The attributes exposed by this data source are marked as
+        /// sensitive.
+        /// </summary>
+        public static Output<GetSensitiveFileResult> Invoke(GetSensitiveFileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSensitiveFileResult>("local:index/getSensitiveFile:getSensitiveFile", args ?? new GetSensitiveFileInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.Local
         /// </summary>
         public static Output<GetFileResult> Invoke(GetFileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileResult>("local:index/getFile:getFile", args ?? new GetFileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Reads a file from the local filesystem.
+        /// </summary>
+        public static Output<GetFileResult> Invoke(GetFileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileResult>("local:index/getFile:getFile", args ?? new GetFileInvokeArgs(), options.WithDefaults());
     }
 
 
