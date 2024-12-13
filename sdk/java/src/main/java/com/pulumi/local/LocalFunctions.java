@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.local.Utilities;
 import com.pulumi.local.inputs.GetFileArgs;
 import com.pulumi.local.inputs.GetFilePlainArgs;
@@ -36,6 +37,13 @@ public final class LocalFunctions {
      * 
      */
     public static Output<GetFileResult> getFile(GetFileArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("local:index/getFile:getFile", TypeShape.of(GetFileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Reads a file from the local filesystem.
+     * 
+     */
+    public static Output<GetFileResult> getFile(GetFileArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("local:index/getFile:getFile", TypeShape.of(GetFileResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -73,6 +81,16 @@ public final class LocalFunctions {
      * 
      */
     public static Output<GetSensitiveFileResult> getSensitiveFile(GetSensitiveFileArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("local:index/getSensitiveFile:getSensitiveFile", TypeShape.of(GetSensitiveFileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Reads a file that contains sensitive data, from the local filesystem.
+     * 
+     * The attributes exposed by this data source are marked as
+     * sensitive.
+     * 
+     */
+    public static Output<GetSensitiveFileResult> getSensitiveFile(GetSensitiveFileArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("local:index/getSensitiveFile:getSensitiveFile", TypeShape.of(GetSensitiveFileResult.class), args, Utilities.withVersion(options));
     }
     /**
