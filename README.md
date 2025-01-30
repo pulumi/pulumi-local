@@ -9,8 +9,8 @@
 > [!NOTE]  
 > This provider exists to support users converting from Terraform to Pulumi.
 > It is not recommended for new users to use this provider.
-> Users looking to execute commands in pulumi should use the [pulumi-command](https://www.pulumi.com/registry/packages/command/) provider.
-> It offers a more flexible and powerful way to execute commands in pulumi.
+> Users looking to execute commands in Pulumi should use the [pulumi-command](https://www.pulumi.com/registry/packages/command/) provider.
+> It offers a more flexible and powerful way to execute commands in Pulumi.
 
 The Local resource provider for Pulumi lets you use Local resources in your cloud programs.
 To use this package, please [install the Pulumi CLI first](https://www.pulumi.com/docs/install/).
