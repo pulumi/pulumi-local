@@ -15,45 +15,18 @@
 The Local resource provider for Pulumi lets you use Local resources in your cloud programs.
 To use this package, please [install the Pulumi CLI first](https://www.pulumi.com/docs/install/).
 
-## Installing
+>[!NOTE] As of v0.1.6, this provider is DEPRECATED and will no longer be maintained by Pulumi.
+> We recommend using the [Local Provider](https://www.pulumi.com/blog/any-terraform-provider/) version of this package,
+> which can be generated from the Local Terraform provider as follows:
+> `pulumi package add terraform-provider registry.opentofu.org/hashicorp/local <version>`
+> and follow the instructions.
 
-This package is available in many languages in the standard packaging formats.
+## Migration
 
-### Node.js (Java/TypeScript)
-
-To use from JavaScript or TypeScript in Node.js, install using either `npm`:
-
-    $ npm install @pulumi/local
-
-or `yarn`:
-
-    $ yarn add @pulumi/local
-
-### Go
-
-To use from Go, use `go get` to grab the latest version of the library:
-
-    $ go get github.com/pulumi/pulumi-local/sdk
-
-### .NET
-
-To use from .NET, install using `dotnet add package`:
-
-    $ dotnet add package Pulumi.Local
-
-<!-- If your provider has configuration, remove this comment and the comment tags below, updating the documentation. -->
-<!--
-
-## Configuration
-
-The following Pulumi configuration can be used:
-
-- `local:token` - (Required) The API token to use with Local. When not set, the provider will use the `LOCAL_TOKEN` environment variable.
-
--->
-
-<!-- If your provider has reference material available elsewhere, remove this comment and the comment tags below, updating the documentation. -->
-<!--
+The currently equivalent upstream version to pulumi-local@v0.1.6 is search.opentofu.org/provider/hashicorp/local v2.5.2.
+We recommend that you migrate between these versions of each provider.
+To perform the migration of existing Local resources, we recommend running `pulumi import` in a fresh stack
+which uses the locally built provider package.
 
 ## Reference
 
